@@ -9,4 +9,11 @@ class Post < ActiveRecord::Base
   acts_as_voteable
   acts_as_taggable
   acts_as_taggable_on :tags
+
+  validates :title, :user_id, :board_id, :presence => true
+  validates :content, :presence => true,
+                      :length => { :minimum => 10 }
+
+  validates_associated :comments
+
 end

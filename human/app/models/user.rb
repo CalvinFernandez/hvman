@@ -11,5 +11,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments, :as => :commentable
 
+  validates_associated :comments, :posts
+
   acts_as_voter
 end

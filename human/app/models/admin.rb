@@ -9,4 +9,6 @@ class Admin < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   belongs_to :board
+
+  validates :board_id, :presence => true
 end

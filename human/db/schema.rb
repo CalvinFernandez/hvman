@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414212754) do
+ActiveRecord::Schema.define(:version => 20130414222955) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(:version => 20130414212754) do
     t.datetime "updated_at",                                 :null => false
     t.integer  "user_id"
     t.integer  "board_id"
-    t.string   "title"
     t.text     "content"
     t.string   "post_image_file_name"
     t.string   "post_image_content_type"
@@ -60,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130414212754) do
     t.datetime "post_image_updated_at"
     t.boolean  "verified",                :default => false
     t.integer  "flag",                    :default => 0
+    t.string   "title"
   end
 
   create_table "taggings", :force => true do |t|
