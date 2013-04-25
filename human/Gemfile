@@ -30,6 +30,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'sqlite3'
   gem 'rake'
+  gem 'rspec-rails', '~> 2.0'
 end
 
 group :production do

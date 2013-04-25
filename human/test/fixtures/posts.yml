@@ -13,6 +13,24 @@ one:
   title: "post number 1"
   flag: 1
 
+userOneA:
+  id: 3
+  user_id: 1
+  board_id: 1
+  content: "blah blah"
+  verified: false
+  title: "blah blah"
+  flag: 0
+
+userOneB:
+  id: 4
+  user_id: 1
+  board_id: 1
+  content: "blah blah"
+  verified: flase
+  title: "blah blah"
+  flag: 0
+
 two:
   id: 2
   user_id: 2
@@ -21,3 +39,21 @@ two:
   verified: true
   title: "post number 2"
   flag: 2
+
+userTwoA:
+  id: 5
+  user_id: 2
+  board_id: 2
+  content: "blah blah"
+  verified: false
+  title: "blah blah"
+  flag: 0
+
+userTwoB: 
+  id: 6
+  user_id: 2
+  board_id: 2
+  content: "blah blah"
+  verified: false
+  title: "blah blah"
+  flag: 0
