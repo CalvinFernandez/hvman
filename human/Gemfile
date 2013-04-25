@@ -7,6 +7,8 @@ gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'thumbs_up'
+gem 'acts-as-taggable-on'
 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 # Bundle edge Rails instead:
@@ -28,6 +30,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'sqlite3'
   gem 'rake'
+  gem 'rspec-rails', '~> 2.0'
 end
 
 group :production do
