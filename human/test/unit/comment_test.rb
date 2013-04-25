@@ -15,8 +15,15 @@ class CommentTest < ActiveSupport::TestCase
     assert_equal comments(:one).comments[0].commenter_id, users(:one).id
     assert_equal posts(:one).comments[0].commenter_id, users(:one).id 
   end
-  
-  test "validations" do
 
+  test "validations" do
+    test = users(:one).comments.new(:content => "Hello, world", :commentable_type => 'Post')
+    assert !test.save, "Able to save a comment without commentable_id"
+
+    test = users(:one).comments.new(:content => "Hello, world", :commentable_id => 1)
+    assert !test.save, "Able to save a comment without commentable_type"
+
+    test = users(:one).comments.new(:commentable_type => 'Post', :commentable_id => 1)
+    assert !test.save, "Able to save a comment without content"
   end 
 end

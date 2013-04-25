@@ -7,4 +7,5 @@ class Board < ActiveRecord::Base
   acts_as_taggable_on :tags
 
   validates_associated :posts, :admins
+  validates :title, :presence => true
 end
