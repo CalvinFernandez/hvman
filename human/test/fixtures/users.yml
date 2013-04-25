@@ -7,11 +7,9 @@
 one:
   id: 1
   email: "userone@userone.com"
-  encrypted_password: "testuserone"
   user_name: userone
 
 two:
   id: 2
   email: "usertwo@usertow.com"
-  encrypted_password: "testusertwo"
   user_name: usertwo

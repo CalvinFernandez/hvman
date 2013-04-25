@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  fixtures :users, :posts
 
   test "duplicate user_names" do
     user = users(:one)
