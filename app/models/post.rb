@@ -20,4 +20,6 @@ class Post < ActiveRecord::Base
 
   validates_associated :comments
 
+  acts_as_taggable
+  acts_as_taggable_on :tags
 end

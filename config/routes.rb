@@ -5,17 +5,15 @@ Human::Application.routes.draw do
 
   root :to => "application#index"
 
-  resources :users do
-    resources :comments
-    resources :posts
-  end
+  resources :posts
+
+  resources :comments
+
+  resources :users
 
   resources :admins
-  
-  resources :boards do
-    resources :posts
-    resources :admins
-  end
+
+  resources :boards
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
