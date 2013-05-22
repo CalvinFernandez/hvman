@@ -5,11 +5,16 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  id: 1
-  email: "userone@userone.com"
-  user_name: userone
+  id: 1 
+  content: 'Damn that was a good post'
+  commentable_id: 1
+  commentable_type: 'Post'
+  commenter_id: 1
+  commenter_type: 'User'   
 
 two:
-  id: 2
-  email: "usertwo@usertwo.com"
-  user_name: usertwo
+  content: 'Damn that was a good comment'
+  commentable_id: 1
+  commentable_type: 'Comment'
+  commenter_id: 1
+  commenter_type: 'User'

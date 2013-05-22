@@ -5,11 +5,8 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  id: 1
-  email: "userone@userone.com"
-  user_name: userone
-
+  id: 1 
+  title: "boardone"
 two:
-  id: 2
-  email: "usertwo@usertwo.com"
-  user_name: usertwo
+  id: 2 
+  title: "boardtwo"
