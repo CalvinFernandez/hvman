@@ -1,0 +1,6 @@
+this.app.config(['$routeProvider', function($routeProvider) { 
+    $routeProvider
+      .when('/users', { controller: 'UsersIndexCtrl', templateUrl: '<%= asset_path('partials/users-index.html') %>' })
+      .when('/users/:id', { controller: 'UsersShowCtrl', templateUrl: '<%= asset_path('partials/users-show.html') %>' })
+      .otherwise({ redirectTo: '/users' });
+}]);

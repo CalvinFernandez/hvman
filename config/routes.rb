@@ -3,19 +3,17 @@ Human::Application.routes.draw do
 
   devise_for :users
 
-  root :to => "application#index"
+  root :to => "application#home"
 
-  resources :users do
-    resources :comments
-    resources :posts
-  end
+  resources :posts
+
+  resources :comments
+
+  resources :users
 
   resources :admins
-  
-  resources :boards do
-    resources :posts
-    resources :admins
-  end
+
+  resources :boards
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

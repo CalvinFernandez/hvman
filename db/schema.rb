@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425171153) do
+ActiveRecord::Schema.define(:version => 20130522232304) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130425171153) do
     t.boolean  "verified",                :default => false
     t.integer  "flag",                    :default => 0
     t.string   "title"
+    t.text     "link"
   end
 
   create_table "taggings", :force => true do |t|
