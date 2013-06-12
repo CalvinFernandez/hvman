@@ -14,7 +14,7 @@ class UsersControllerTest < ActionController::TestCase
     response = get :index
     assert_response :success
     response_json = JSON.parse(response.body)
-    assert_equal response_json["users"].size, 2 
+    assert_equal response_json.size, 2 
   end
 
   test "should show userone" do

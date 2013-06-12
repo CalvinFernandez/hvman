@@ -14,7 +14,7 @@ class BoardsControllerTest < ActionController::TestCase
     assert_response :success
     
     response_json = JSON.parse(response.body)
-    assert_equal response_json["boards"].size, 2, "Didn't return the correct number of boards"
+    assert_equal response_json.size, 2, "Didn't return the correct number of boards"
   end 
   
   test "get board" do

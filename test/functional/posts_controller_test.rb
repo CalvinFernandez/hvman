@@ -15,21 +15,21 @@ class PostsControllerTest < ActionController::TestCase
     assert_response :success
     
     response_json = JSON.parse(response.body)
-    assert_equal response_json["posts"].size, 6, "Didn't return the correct number of posts"
+    assert_equal response_json.size, 6, "Didn't return the correct number of posts"
   end 
 
   test "get user index" do 
     response = get :index, :user_id => @userone.id
     assert_response :success
     response_json = JSON.parse(response.body)
-    assert_equal response_json["posts"].size, @userone.posts.size, "Didn't get the user's posts"
+    assert_equal response_json.size, @userone.posts.size, "Didn't get the user's posts"
   end
 
   test "get board index" do
     response = get :index, :board_id => @boardone.id
     assert_response :success
     response_json = JSON.parse(response.body)
-    assert_equal response_json["posts"].size, @boardone.posts.size, "Didn't get the board's posts"
+    assert_equal response_json.size, @boardone.posts.size, "Didn't get the board's posts"
   end
 
   test "get post" do
