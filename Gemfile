@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'ember-rails'
+gem 'angularjs-rails', '~> 1.0.6.2'
 gem 'devise'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
