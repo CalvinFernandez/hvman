@@ -9,6 +9,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'thumbs_up'
 gem 'acts-as-taggable-on'
+gem 'underscore-rails'
 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 # Bundle edge Rails instead:

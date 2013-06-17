@@ -15,4 +15,5 @@
 //= require angular
 //= require angular-resource
 //= require app
+//= require underscore
 //= require_tree .

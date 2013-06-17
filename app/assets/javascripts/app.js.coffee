@@ -1,2 +1,2 @@
-# app/assets/javascripts/human.js.coffee
-@app = angular.module('human', ['ngResource'])
+# app/assets/javascripts/app.js.coffee
+@app = angular.module('human', ['restangular'])
