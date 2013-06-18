@@ -6,5 +6,7 @@ angular.module('human.routes', [])
       .when('/users/:id', { controller: 'UsersShowCtrl', templateUrl: '<%= asset_path('partials/users/users-show.html') %>' })
       .when('/posts', { controller: 'PostsIndexCtrl', templateUrl: '<%= asset_path('partials/posts/posts-index.html') %>' })
       .when('/posts/:id', { controller: 'PostsShowCtrl', templateUrl: '<%= asset_path('partials/posts/posts-show.html') %>' })
+      .when('/boards', { controller: 'BoardsIndexCtrl', templateUrl: '<%= asset_path('partials/boards/boards-index.html') %>' })
+      .when('/boards/:id', { controller: 'BoardsShowCtrl', templateUrl:' <%= asset_path('partials/boards/boards-show.html') %>' }) 
       .otherwise({ redirectTo: '/' });
 }]);
