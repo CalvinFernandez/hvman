@@ -2,5 +2,5 @@
 angular.module('human', 
     ['restangular', 
     'human.controllers', 
-    'human.router', 
+    'human.routes', 
     'human.config']);
