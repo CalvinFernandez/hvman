@@ -32,13 +32,13 @@ class PostsControllerTest < ActionController::TestCase
     assert_equal response_json.size, @boardone.posts.size, "Didn't get the board's posts"
   end
 
-  test "get post" do
-    response = get :show, :id => @postone.id   
-    assert_response :success
+  #test "get post" do
+   # response = get :show, :id => @postone.id   
+   # assert_response :success
 
-    response_json = JSON.parse(response.body)
-    assert_equal response_json["id"], @postone.id, "Not the correct post"
-  end
+   # response_json = JSON.parse(response.body)
+   # assert_equal response_json["id"], @postone.id, "Not the correct post"
+  #end
 
   test "can't create post unless logged in" do
     assert_difference('Post.count', 0) do
