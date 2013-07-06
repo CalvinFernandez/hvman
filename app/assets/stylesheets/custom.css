@@ -1,0 +1,102 @@
+a {
+  text-decoration: none !important;
+}
+
+.paper-icon {
+  color: #ffccff; 
+}
+
+.paper-icon.very-large {
+  height: 306px;
+}
+
+.camera-icon.medium {
+  height: 95px;
+}
+
+.camera-icon:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.edit:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.wide {
+  width: 513px;
+}
+
+.row.big-margin-top {
+  margin-top: 40px;
+}
+
+.big-margin-top {
+  margin-top: 40px;
+}
+
+form>.hidden {
+  display:none;
+}
+
+.logo {
+  height: 248px;
+}
+.logo>img{
+  height: 248px;
+}
+
+.logo-medium{
+  height: 150px;
+}
+
+.border-right {
+  border-right: 1px solid #ECF0F1;
+}
+
+li {
+  text-decoration: none;    
+  list-style: none;
+}
+.label {
+  margin: 10px;
+}
+.label.success {
+  background-color: #16A085;   
+}
+
+a.no-color {
+  color: #ECF0F1;
+}
+
+.label.large {
+  text-shadow: none;
+  text-align: center;
+  font-size: 16px;
+  min-width: 60px;
+  height: 20px;
+}
+
+.inline {
+  display: inline;   
+  margin-right: 6px;
+}
+
+.post-glimpse {
+  margin-top: 50px;
+  border-bottom: 1px solid #ECF0F1;
+  padding-bottom: 50px;
+}
+
+.border-left {
+  padding-left: 20px;
+  border-left: 1px solid #ECF0F1;
+}
+
+.clear-nav {
+margin: 100px;
+}
+
+.navbar-inner.no-shadow {
+  box-shadow: none;
+}

@@ -1,6 +1,2 @@
 /* app/assets/javascripts/app.js */
-angular.module('human', 
-    ['restangular', 
-    'human.controllers', 
-    'human.routes', 
-    'human.config']);
+var app = angular.module('human', ['restangular', 'human.routes', 'human.config', 'http-auth-interceptor', 'infinite-scroll']);

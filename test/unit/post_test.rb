@@ -55,13 +55,4 @@ class PostTest < ActiveSupport::TestCase
 
     assert !p.save, "Able to create post without user_id"
   end
-  test "post without board_id" do
-    p = Post.new(:user_id => 1, 
-                :content => "this is post number 1",
-                :title => "post number 1",
-                :verified => false,
-                :flag => 1)
-
-    assert !p.save, "Able to create post without board_id"
-  end
 end
