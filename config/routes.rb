@@ -18,7 +18,7 @@ Human::Application.routes.draw do
   get 'tags' => 'tags#index' 
   get 'tags/:name' => 'tags#show'
 
-  match 'currentUser' => 'application#currentUser'
+  post 'posts/:id/vote' => 'posts#vote_on'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

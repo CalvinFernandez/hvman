@@ -54,4 +54,20 @@ class PostsController < ApplicationController
       render :json => {}, :status => 404
     end
   end
+
+  def vote_on
+    post = Post.find_by_id(params[:id])
+    if current_user.voted_on?(post) == false
+      if params[:vote] == true
+        current_user.vote_for(post)        
+        render :json => {}, :status => 200
+      else
+        current_user.vote_against(post)
+        render :json => {}, :status => 200
+      end
+    else
+      current_user.unvote_for(post)  
+      render :json => {}, :status => 200
+    end
+  end
 end
