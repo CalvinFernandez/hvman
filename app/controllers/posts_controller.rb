@@ -16,10 +16,13 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(params[:post])
     if @post.valid?
+      if params[:tags] 
+        @post.tag_list.add(params[:tags])    
+      end
       @post.save
       render :json => @post
     else
-      render :json, 500
+      render :json => {}, :status => 500
     end
   end
 
@@ -27,28 +30,28 @@ class PostsController < ApplicationController
     post = current_user.posts.find_by_id(params[:id])
     if post
       post.destroy
-      render :json, 200
+      render :json => {}, :status => 200
     else
-      render :json, 404
+      render :json => {}, :status => 404
     end
   end
 
   def update
-    @post = current_user.posts.find_by_id(params[:post][:id])
+    @post = current_user.posts.find_by_id(params[:id])
     if @post
-      @post = update_attributes(params[:post])
+      @post.update_attributes(params[:post])
       render :json => @post
     else
-      render :json, 404
+      render :json => {}, :status => 404
     end
   end 
 
   def show
     @post = Post.find_by_id(params[:id])
     if @post
-      render :json => @post
+      @post
     else
-      render :json, 404
+      render :json => {}, :status => 404
     end
   end
 end

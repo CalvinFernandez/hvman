@@ -15,6 +15,11 @@ Human::Application.routes.draw do
 
   resources :boards
 
+  get 'tags' => 'tags#index' 
+  get 'tags/:name' => 'tags#show'
+
+  match 'currentUser' => 'application#currentUser'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

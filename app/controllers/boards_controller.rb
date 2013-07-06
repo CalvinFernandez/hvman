@@ -16,7 +16,7 @@ class BoardsController < ApplicationController
       @board.save
       render :json => @board
     else
-      render :json, 500
+      render :json => {}, :status => 500
     end
   end
 end
