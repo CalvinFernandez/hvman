@@ -54,9 +54,12 @@ app.controller('PostsShowCtrl', ['$scope', '$routeParams', 'Restangular', '$loca
   }
 ]);
 
-app.controller('PostsIndexCtrl', ['$scope', 'Restangular', '$routeParams',
-  function($scope, Restangular, $routeParams) {
+app.controller('PostsIndexCtrl', ['$scope', 'Restangular',
+  function($scope, Restangular) {
     $scope.posts = Restangular.all('posts').getList();
+    $scope.nextPage = function() {
+      console.log("next page");
+    }
   }
 ]);
 
