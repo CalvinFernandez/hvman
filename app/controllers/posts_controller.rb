@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
     end
-    render :json => @posts
+    @posts
   end
 
   def create
@@ -52,6 +52,27 @@ class PostsController < ApplicationController
       @post
     else
       render :json => {}, :status => 404
+    end
+  end
+
+  def vote_on
+    post = Post.find_by_id(params[:id])
+    if (current_user.voted_for?(post) &&
+            params[:vote] == true) || 
+              (current_user.voted_against?(post) &&
+                params[:vote] == false)
+      current_user.unvote_for(post)  
+      render :json => {}, :status => 200
+    elsif params[:vote] == true
+      current_user.unvote_for(post)  
+      current_user.vote_for(post)
+      render :json => {}, :status => 200
+    elsif params[:vote] == false
+      current_user.unvote_for(post)  
+      current_user.vote_against(post)
+      render :json => {}, :status => 200
+    else
+      render :json => {}, :status => 400
     end
   end
 end

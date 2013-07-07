@@ -1,1 +1,46 @@
-<h1> you've reached the posts index </h1>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4">
+    </div>
+    <div class="span8 border-left">
+      <div class="post-glimpse" ng-repeat="post in posts">
+        <div class="row-fluid">
+          <div class="span1">
+          </div>
+          <div class="span11">
+            <div class="row-fluid">
+              <div class="span9">
+                <a ng-hide="post.link" href="/#/posts/{{post.id}}">
+                  <h3> {{post.title}} </h3><br>
+                </a>
+                <a ng-show="post.link" href="{{post.link}}">
+                  <h3> {{post.title}} </h3><br>
+                </a>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span9">
+                <p ng-hide="more"> 
+                  {{chomp(post.content)}}
+                  (<a href="" ng-hide="more" ng-click="more = !more"> more </a>
+                  <a href="" ng-show="more" ng-click="more = !more"> less </a>)
+                </p>
+                <p ng-show="more"> 
+                  {{post.content}}
+                  (<a href="" ng-hide="more" ng-click="more = !more"> more </a>
+                  <a href="" ng-show="more" ng-click="more = !more"> less </a>)
+                </p>
+                <a href="" ng-hide="post.voted_for" ng-click="voteUp(post)"> &#9650;</a>
+                <a href="" class="selected" ng-show="post.voted_for" ng-click="voteUp(post)"> &#9650;</a>
+                <a href="" ng-hide="post.voted_against" ng-click="voteDown(post)"> &#9660;</a>
+                <a href="" class="selected" ng-show="post.voted_against" ng-click="voteDown(post)"> &#9660;</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/#/posts/{{post.id}}">Comments</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="">Share</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
