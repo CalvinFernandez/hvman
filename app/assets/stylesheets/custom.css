@@ -100,3 +100,7 @@ margin: 100px;
 .navbar-inner.no-shadow {
   box-shadow: none;
 }
+
+a.selected {
+  color: #2ECC71;
+}

@@ -6,17 +6,23 @@ app.controller('ApplicationCtrl', ['$scope', 'Restangular', '$http',
       return text.substring(0, 300) + " ..."; 
     }
 
-    $scope.voteUp = function(id) {
+    $scope.voteUp = function(post) {
+      post.voted_for = !post.voted_for; 
+      post.voted_against = false;
+
       $http({
-        url: 'posts/'+ id + '/vote', 
+        url: 'posts/'+ post.id + '/vote', 
         method: 'POST',
         data: {"vote": true}
       });
     }
 
-    $scope.voteDown = function(id) {
+    $scope.voteDown = function(post) {
+      post.voted_against = !post.voted_against;
+      post.voted_for = false;
+
       $http({
-        url: 'posts/'+ id + '/vote', 
+        url: 'posts/'+ post.id + '/vote', 
         method: 'POST',
         data: {"vote": false}
       });
