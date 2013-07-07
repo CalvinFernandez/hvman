@@ -30,8 +30,10 @@
                   (<a href="" ng-hide="more" ng-click="more = !more"> more </a>
                   <a href="" ng-show="more" ng-click="more = !more"> less </a>)
                 </p>
-                <a href="" ng-click="voteUp({{post.id}})"> &#9650;</a>
-                <a href="" ng-click="voteDown({{post.id}})"> &#9660;</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="" ng-hide="post.voted_for" ng-click="voteUp(post)"> &#9650;</a>
+                <a href="" class="selected" ng-show="post.voted_for" ng-click="voteUp(post)"> &#9650;</a>
+                <a href="" ng-hide="post.voted_against" ng-click="voteDown(post)"> &#9660;</a>
+                <a href="" class="selected" ng-show="post.voted_against" ng-click="voteDown(post)"> &#9660;</a> &nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="/#/posts/{{post.id}}">Comments</a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="">Share</a>
               </div>

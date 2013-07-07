@@ -6,6 +6,7 @@ if user_signed_in?
   end
   json.voted_for current_user.voted_for?(post)
   json.voted_against current_user.voted_against?(post)
+  json.plusminus post.plusminus
 end
 
 json.tags post.tag_list
