@@ -100,7 +100,16 @@ margin: 100px;
 .navbar-inner.no-shadow {
   box-shadow: none;
 }
+.navbar * .navbar-search {
+  margin-top: 23px;
+}
 
 a.selected {
   color: #2ECC71;
+}
+.sidebar-nav-fixed {
+  position:fixed;
+  top:60px;
+  margin-left: -20px;
+  width: 35%;
 }

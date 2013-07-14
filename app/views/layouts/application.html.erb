@@ -10,14 +10,10 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner no-shadow">
       <div class="container-fluid">
-        <ul class="nav">
-          <li>
-            <a href="/#/">Human</a>
-          </li>
-        </ul>
+        <a class="brand" href="/#/">Human</a>
         <ul class="nav pull-right">
           <li>
-            <a href="/#/newPost">Submit</a>
+            <a href="/#/newPost">New</a>
           </li>
           <li>
             <% if user_signed_in? %>
@@ -27,6 +23,11 @@
             <% end %>
           </li>
         </ul>
+        <div ng-controller="TypeaheadCtrl">
+          <form class="navbar-search pull-right" ng-submit="submit()">
+            <input type="text" ng-model="typeSelected"  typeahead-on-select="selected()" typeahead="result.name for result in results | filter:$viewValue" class="search-query" placeholder="Search">
+          </form>
+        </div>
       </div>
     </div>
   </div>

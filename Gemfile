@@ -11,6 +11,8 @@ gem 'thumbs_up'
 gem 'acts-as-taggable-on'
 gem 'underscore-rails'
 gem 'kaminari', '~> 0.14.1'
+gem "tire"
+gem "tire-contrib"
 
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 # Bundle edge Rails instead:

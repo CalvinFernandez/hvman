@@ -16,6 +16,9 @@ Human::Application.routes.draw do
   resources :boards
 
   get 'tags' => 'tags#index' 
+
+  get 'tags/autocomplete' => 'tags#autocomplete'
+
   get 'tags/:name' => 'tags#show'
 
   post 'posts/:id/vote' => 'posts#vote_on'

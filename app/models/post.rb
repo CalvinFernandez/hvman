@@ -28,5 +28,4 @@ class Post < ActiveRecord::Base
     options[:per_page] ||= 10
     Post.page(options[:page]).per(options[:per_page])             
   end
-
 end

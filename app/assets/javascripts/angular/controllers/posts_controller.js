@@ -93,6 +93,7 @@ app.controller('PostsNewCtrl', ['$scope', '$location', 'Restangular',
     });
 
     $("#new-post-tags").tagsInput({
+      autocomplete_url: 'tags/autocomplete',
       onAddTag: function(tag) { $scope.post.tags.push(tag) },
       onRemoveTag: function(tag) { 
         $scope.post.tags = _.without($scope.post.tags, tag); 
