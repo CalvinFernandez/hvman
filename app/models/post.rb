@@ -22,4 +22,10 @@ class Post < ActiveRecord::Base
 
   acts_as_taggable
   acts_as_taggable_on :tags
+
+  def self.paginated(options = {}) 
+    options[:page] ||= 1
+    options[:per_page] ||= 10
+    Post.page(options[:page]).per(options[:per_page])             
+  end
 end

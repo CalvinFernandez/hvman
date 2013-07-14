@@ -1,3 +1,31 @@
+app.controller('PostsCtrl', ['$scope', '$http', function($scope, $http) {
+  $scope.chomp = function(text) {
+    return text.substring(0, 300) + " ..."; 
+  }
+
+  $scope.voteUp = function(post) {
+    post.voted_for = !post.voted_for; 
+    post.voted_against = false;
+
+    $http({
+      url: 'posts/'+ post.id + '/vote', 
+      method: 'POST',
+      data: {"vote": true}
+    });
+  }
+
+  $scope.voteDown = function(post) {
+    post.voted_against = !post.voted_against;
+    post.voted_for = false;
+
+    $http({
+      url: 'posts/'+ post.id + '/vote', 
+      method: 'POST',
+      data: {"vote": false}
+    });
+  }
+}]);
+
 app.controller('PostsShowCtrl', ['$scope', '$routeParams', 'Restangular', '$location', '$http', 
   function($scope, $routeParams, Restangular, $location, $http) {
     Restangular.one('posts', $routeParams.id).get().then(function(post) {
@@ -28,7 +56,22 @@ app.controller('PostsShowCtrl', ['$scope', '$routeParams', 'Restangular', '$loca
 
 app.controller('PostsIndexCtrl', ['$scope', 'Restangular',
   function($scope, Restangular) {
-    $scope.posts = Restangular.all('posts').getList();
+    $scope.posts = [];
+    $scope.busy = false;
+    $scope.page = 1;
+
+    $scope.nextPage = function() {
+      if ($scope.busy) return;
+      $scope.busy = true;
+
+      Restangular.all('posts').getList({page: $scope.page}).then(function(posts) {
+        for (var i = 0; i < posts.length; i ++) {
+          $scope.posts.push(posts[i]);
+        }
+        $scope.page += 1;
+        $scope.busy = false;
+      }); 
+    }
   }
 ]);
 
@@ -50,6 +93,7 @@ app.controller('PostsNewCtrl', ['$scope', '$location', 'Restangular',
     });
 
     $("#new-post-tags").tagsInput({
+      autocomplete_url: 'tags/autocomplete',
       onAddTag: function(tag) { $scope.post.tags.push(tag) },
       onRemoveTag: function(tag) { 
         $scope.post.tags = _.without($scope.post.tags, tag); 

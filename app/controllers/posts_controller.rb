@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     elsif params[:board_id]
       @posts = Post.find_all_by_board_id(params[:board_id])
     else
-      @posts = Post.all
+      @posts = Post.paginated(:page => params[:page])
     end
     @posts
   end
