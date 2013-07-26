@@ -5,6 +5,10 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  
+  <link rel="stylesheet"  href="/assets/skins/lightgray/skin.min.css">
+  <link rel="stylesheet"  href="/assets/skins/lightgray/content.min.css">
+
 </head>
 <body>
   <div class="navbar navbar-fixed-top">
@@ -37,5 +41,6 @@
   <p class="alert"><%= alert %></p>-->
   <%= yield %>
 
+  <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 </body>
 </html>
