@@ -9,4 +9,5 @@ if user_signed_in?
   json.plusminus post.plusminus
 end
 
+json.comments post.comments
 json.tags post.tag_list

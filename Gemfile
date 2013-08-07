@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'angularjs-rails', '~> 1.0.6.2'
 gem 'devise'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
@@ -9,7 +8,6 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'thumbs_up'
 gem 'acts-as-taggable-on'
-gem 'underscore-rails'
 gem 'kaminari', '~> 0.14.1'
 gem "tire"
 gem "tire-contrib"
