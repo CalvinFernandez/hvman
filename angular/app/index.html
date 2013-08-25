@@ -13,9 +13,10 @@
 
         <!-- build:css({.tmp,app}) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
-        <link rel="stylesheet" href="bower_components/flat-ui-official/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="bower_components/flat-ui-official/css/flat-ui.css">
+        <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css'>
+        <link rel='stylesheet' href='styles/bootstrap.css'>
         <!-- endbuild -->
+
 </head>
   <body ng-app="angularApp">
     <!--[if lt IE 7]>
@@ -28,6 +29,25 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <div class='navbar navbar-default navbar-fixed-top'>
+      <div class='container'>
+        <div class='navbar-header'>
+          <a href='/' class='navbar-brand'>Hvman</a>
+        </div>
+        <div>
+          <ul class='nav navbar-nav'>
+            <li>
+              <a class='my-nav' href='#/topics'> Explore </a>
+            </li>
+          </ul>
+          <ul class='nav navbar-nav pull-right'>
+            <li>
+              <a class='my-nav' href='#/login'> Login </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -56,6 +76,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/postsindex.js"></script>
         <script src="scripts/controllers/Posts.js"></script>
         <script src="scripts/controllers/PostsShow.js"></script>

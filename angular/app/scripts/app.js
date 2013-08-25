@@ -35,6 +35,10 @@ angular.module('angularApp', ['infinite-scroll', 'restangular', 'ui.bootstrap.ty
         controller: 'LogoutCtrl',
         templateUrl: 'views/logout.html'
       })
+      .when('/about', {
+        controller: 'AboutCtrl',
+        templateUrl: 'views/about.html'
+      })
       .when('/:tag', {
         templateUrl: 'views/postsindex.html',
         controller: 'TagCtrl'

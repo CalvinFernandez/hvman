@@ -10,9 +10,9 @@
     "angular-sanitize": "~1.0.7",
     "ngInfiniteScroll": "~1.0.0",
     "jquery": "~2.0.3",
+    "bootstrap": "latest",
     "underscore": "~1.5.1",
     "restangular": "~1.0.9",
-    "flat-ui-official": "*",
     "angular-ui-tinymce": "latest"
   },
   "devDependencies": {
