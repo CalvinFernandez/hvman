@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container navfix">
   <div class="row big-margin-top">
-    <div class="span4">
+    <div class="col-md-4">
       <a href="/">
         <img class="border-right border-bottom" src='images/hvman-logo.svg'>
       </a>
     </div>
-    <div class="span8">
+    <div class="col-md-8">
       <div class="row">
-        <div class="span3">
+        <div class="col-md-3">
           <form id="new-post-form">
             <input type="text" placeholder="Title" ng-model="post.title"><br>
             <input type="text" placeholder="Source URL (If not original)" ng-model="post.link">
@@ -16,13 +16,13 @@
         </div>
       </div>
       <div class="row">
-        <div class="span8">
+        <div class="col-md-8">
           <textarea ui-tinymce="tinymceOptions" form="new-post-form" placeholder="Content" class="full" ng-model="post.content"></textarea>
         </div>
       </div>
       <hr>
       <div class="row">
-        <div class="span4">
+        <div class="col-md-4">
           <div class="tags">
             <div ng-repeat="_tag in post.tags" class="tag">  
               <span>{{_tag}}</span><span class='fui-cross' ng-click='removeTag(_tag)'></span>
@@ -35,7 +35,7 @@
           </div>
           <!--<input id="new-post-tags" class="post-tags" value="Add Tags"> -->
         </div>
-        <div class="span3">
+        <div class="col-md-3">
           <a href="" class="btn btn-large btn-primary btn-block" ng-click="submit()"> Submit </a>
         </div>
       </div>

@@ -2,8 +2,12 @@ a {
   text-decoration: none !important;
 }
 
+.logo-background {
+  background-image: url(/images/hvman-logo.svg) !important;
+}
+
 .navfix {
-  margin-top: 50px;
+  margin-top: 80px;
 }
 a.my-nav {
   padding-top: 19.5px !important;
