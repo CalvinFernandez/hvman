@@ -39,6 +39,10 @@ angular.module('angularApp', ['infinite-scroll', 'restangular', 'ui.bootstrap.ty
         controller: 'AboutCtrl',
         templateUrl: 'views/about.html'
       })
+      .when('/topics', {
+        templateUrl: 'views/TopicsIndex.html',
+        controller: 'TopicsCtrl'
+      })
       .when('/:tag', {
         templateUrl: 'views/postsindex.html',
         controller: 'TagCtrl'

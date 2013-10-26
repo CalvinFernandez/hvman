@@ -1,7 +1,8 @@
 class BoardsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]  
+
   def index
-    @boards = Board.all
+    @boards = Board.elasticsearch(:query => params[:query])
     render :json => @boards
   end
   

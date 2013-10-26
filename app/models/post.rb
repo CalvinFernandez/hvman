@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   has_attached_file :post_image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   
   belongs_to :user
-  belongs_to :board
+  belongs_to :board, touch: true
 
   has_many :comments, :as => :commentable
   acts_as_voteable
