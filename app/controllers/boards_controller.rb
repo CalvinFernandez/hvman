@@ -7,8 +7,19 @@ class BoardsController < ApplicationController
   end
   
   def show
-    @board = Board.find_by_id(params[:id])
-    render :json => @board
+    if params[:id].is_a? Numeric
+      board = Board.find_by_id(params[:id])
+    elsif params[:id].is_a? String
+      board = Board.find_by_title(params[:id])
+    end
+
+    posts = []
+    if board
+      params[:page] ||= 1
+      posts = board.posts.paginated(:page => params[:page])
+    end
+
+    render :json => { :board => board, :posts => posts }
   end
 
   def create

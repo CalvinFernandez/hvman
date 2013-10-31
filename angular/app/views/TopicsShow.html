@@ -1,7 +1,13 @@
-<div class="container col-fixed-sidebar border-left">
-  <div class="row">
-    <div infinite-scroll='nextPage()' infinite-scroll-disabled='busy' infinite-scroll-distance='1' class="col-md-12 infinite">
-      <div class="post-glimpse" ng-repeat="post in posts">
+<h1> Topics show area </h1>
+<h1> Topics show area </h1>
+<h1> Topics show area </h1>
+<h1> Topics show area </h1>
+<h1> Topics show area </h1>
+<h1> {{topic.board.title}}  </h1>
+
+<div infinite-scroll='nextPage()' infinite-scroll-disabled='busy' infinite-scroll-distance='1' class="col-md-8 border-left infinite">
+      
+      <div class="post-glimpse" ng-repeat="post in topic.posts">
         <div class="row">
           <div class="col-md-1">
           </div>
@@ -38,5 +44,3 @@
         </div>
       </div>
     </div>
-  </div>
-</div>

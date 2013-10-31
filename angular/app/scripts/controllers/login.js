@@ -1,20 +1,17 @@
 'use strict';
 
 angular.module('angularApp')
-  .controller('LoginCtrl', function ($scope, $http, authService) {
+  .controller('LoginCtrl', function ($scope, authService, Session, assertService) {
     $scope.email = '';
     $scope.password = '';
-
+    
     $scope.submit = function() {
-      $http({ url: '/api/users/sign_in', method: 'POST', 
-        data: 
-          { user: 
-            { password: $scope.password, 
-              email: $scope.email 
-            }
-          }
-        }).success(function(data) { 
+      Session.logIn($scope.email, $scope.password).then(
+        function(data) {
           authService.loginConfirmed(data);
-        });  
+        }, 
+        function(data) {
+          assertService(false, 'Your email or password is incorrect. Please retry.');
+        });
     }
   });

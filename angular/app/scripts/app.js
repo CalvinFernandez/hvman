@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularApp', ['infinite-scroll', 'restangular', 'ui.bootstrap.typeahead','http-auth-interceptor', 'template/typeahead/typeahead.html', 'ui.tinymce'])
+angular.module('angularApp', ['infinite-scroll', 'restangular', 'ui.bootstrap.typeahead','http-auth-interceptor', 'template/typeahead/typeahead.html', 'ui.tinymce', 'ngCookies', 'assert'])
   .config(function ($routeProvider, RestangularProvider) {
     $routeProvider
       .when('/', {
@@ -42,6 +42,10 @@ angular.module('angularApp', ['infinite-scroll', 'restangular', 'ui.bootstrap.ty
       .when('/topics', {
         templateUrl: 'views/TopicsIndex.html',
         controller: 'TopicsCtrl'
+      })
+      .when('/topics/:title', {
+        templateUrl: 'views/TopicsShow.html',
+        controller: 'TopicsShowCtrl'
       })
       .when('/:tag', {
         templateUrl: 'views/postsindex.html',

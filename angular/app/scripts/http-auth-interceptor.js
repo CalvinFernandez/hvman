@@ -5,12 +5,22 @@
  * (c) 2012 Witold Szczerba
  * License: MIT
  */
+
+
 (function () {
   'use strict';
   
-  angular.module('http-auth-interceptor', ['http-auth-interceptor-buffer'])
+  var locationsToIgnore = (function() {
+    var locationsToIgnore = {'/login': true};
+    return {
+      isIgnored: function(loc) {
+        return locationsToIgnore[loc] === true;
+      }
+    }
+  })();
 
-  .factory('authService', ['$rootScope','httpBuffer', function($rootScope, httpBuffer) {
+  angular.module('http-auth-interceptor', ['http-auth-interceptor-buffer'])
+  .factory('authService', ['$rootScope','httpBuffer', '$location', function($rootScope, httpBuffer, $location) {
     return {
       /**
        * call this function to indicate that authentication was successfull and trigger a 
@@ -20,7 +30,11 @@
        */
       loginConfirmed: function(data) {
         $rootScope.$broadcast('event:auth-loginConfirmed', data);
-        httpBuffer.retryAll();
+        if (httpBuffer.len() > 0) {
+          httpBuffer.retryAll();
+        } else {
+        }
+        $location.path('/');
       }
     };
   }])
@@ -32,13 +46,16 @@
    */
   .config(['$httpProvider', function($httpProvider) {
     
-    var interceptor = ['$rootScope', '$q', 'httpBuffer', function($rootScope, $q, httpBuffer) {
+    var interceptor = ['$rootScope', '$q', 'httpBuffer', '$location', function($rootScope, $q, httpBuffer, $location) {
       function success(response) {
         return response;
       }
  
       function error(response) {
-        if (response.status === 401 && !response.config.ignoreAuthModule) {
+        if (response.status === 401 
+            && !response.config.ignoreAuthModule
+            && !locationsToIgnore.isIgnored($location.path()) ) {
+
           var deferred = $q.defer();
           httpBuffer.append(response.config, deferred);
           $rootScope.$broadcast('event:auth-loginRequired');
@@ -98,6 +115,10 @@
           retryHttpRequest(buffer[i].config, buffer[i].deferred);
         }
         buffer = [];
+      },
+
+      len: function() {
+        return buffer.length;
       }
     };
   }]);

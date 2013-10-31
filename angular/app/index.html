@@ -29,27 +29,56 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class='navbar navbar-default navbar-fixed-top'>
-      <div class='container'>
-        <div class='navbar-header'>
-          <a href='/' class='navbar-brand'>Hvman</a>
-        </div>
-        <div>
-          <ul class='nav navbar-nav'>
-            <li>
-              <a class='my-nav' href='#/topics'> Explore </a>
-            </li>
-          </ul>
-          <ul class='nav navbar-nav pull-right'>
-            <li>
-              <a class='my-nav' href='#/login'> Login </a>
-            </li>
-          </ul>
+    <div class='sidebar-group'>
+      <div class='sidebar-nav-fixed'>
+        <h1 class='vertical'>h v m a n</h1>  
+          <span class='more glyphicon glyphicon-chevron-right vertical-center'></span>
+      </div>
+      <div class='flip-container'>
+        <div class='flipper'>
+          <div class='secondary-sidebar-nav-fixed front inner-shadow'>
+            <ul class='navfix no-padding'>
+              <li click-tag='.flip-container' class='light-top dark-bottom indent'>
+                <h3>
+                <span class="glyphicon glyphicon-search"></span>
+                  <a href='' class='text-inverse'>Explore</a>
+                </h3>
+              </li>
+              <li class='light-top dark-bottom indent'> 
+                <h3> 
+                  <a href='#/login' class='text-inverse'> Sign in </a>
+                </h3>
+              </li>
+              <li class='light-top dark-bottom indent'>
+                <h3>
+                  <a href='#/about' class='text-inverse'> About </a>
+                </h3>
+              </li>
+              <li class='light-top'>
+              </li>
+            </ul>
+          </div>
+          <div ng-controller='TopicsCtrl' class='back inner-shadow'>
+            <span click-tag='.flip-container' class='pointer margin-top col-sm-2 col-sm-offset-9 glyphicon glyphicon-remove'></span>
+            <div class='padding-navfix'>
+              <div class='site-nav-search'>
+                <form ng-submit='search()'>
+                  <input ng-model='query' class='site-nav-search-input' type='text' placeholder='Explore Hvman'>
+                </form>
+              </div>
+              <ul class='no-padding' >
+                <li class='indent' ng-repeat='topic in topics'>
+                  <h4 class='inline'>
+                    <a href='#/topics/{{topic.title}}' class='text-inverse'> {{topic.title}}</a>
+                  </h4> 
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </div>  
     <div ng-view=""></div>
-
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -75,6 +104,7 @@
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
         <script src="scripts/app.js"></script>
 
         <script src="scripts/controllers/about.js"></script>
@@ -89,8 +119,14 @@
         <script src="scripts/controllers/tags.js"></script>
         <script src="scripts/controllers/Typeahead.js"></script>
         
+        <script src="scripts/services/Session.js"></script>
+        <script src="scripts/directives/click-tag.js"></script>
+
         <script src="scripts/http-auth-interceptor.js"></script>
         <script src="scripts/interceptor.js"></script>
+        <script src='scripts/modules/angular-assert.js'></script>
+
+
         <!-- endbuild -->
 </body>
 </html>

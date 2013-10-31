@@ -9,11 +9,14 @@ Human::Application.routes.draw do
 
   resources :comments
 
+  get 'users/logged_in' => 'users#logged_in'
+
   resources :users
 
   resources :admins
 
   resources :boards
+
 
   get 'tags' => 'tags#index' 
 
@@ -22,6 +25,7 @@ Human::Application.routes.draw do
   get 'tags/:name' => 'tags#show'
 
   post 'posts/:id/vote' => 'posts#vote_on'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

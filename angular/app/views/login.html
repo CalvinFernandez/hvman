@@ -4,10 +4,11 @@
       <h1> Login </h1>
       <hr>
       <form>
-        <input type='text' placeholder='Username'><br>
-        <input type='password' placeholder='Password'><br><br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type='text' ng-model='email' placeholder='Email'><br>
+        <input type='password' ng-model='password' placeholder='Password'><br><br>
+        <button ng-click='submit()' type="submit" class="btn btn-primary">Submit</button>
       </form>
+      <assert></assert> 
     </div>
   </div>
 </div>
