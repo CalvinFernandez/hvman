@@ -174,6 +174,8 @@ a.selected {
 }
 
 .flip-container {
+  opacity: 0;
+  -webkit-transition: opacity step-end 1s;
   background-color: black;
   position: fixed;
   left: 100px;
@@ -184,13 +186,6 @@ a.selected {
   perspective: 1000 !important;
 }
 
-@media (max-width: 992px) {
-  .flip-container {
-    display: none;
-  }  
-}
-
-/*.flip-container:hover .flipper, .flip-container.hover .flipper,*/ 
 .flip-container.click .flipper {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
@@ -263,6 +258,11 @@ a.selected {
 .back * .text-inverse {
   color: #FFF8ED;
 }
+
+.front .text-inverse {
+  color: #FFF8ED;
+}
+
 .inner-shadow {
   -moz-box-shadow:    inset 0px 0px 8px 0px #000000;
   -webkit-box-shadow: inset 0px 0px 8px 0px #000;
@@ -316,6 +316,11 @@ a.selected {
   font-size: 1em;
 }
 
+.sidebar-group:hover .flip-container {
+  -webkit-transition: opacity 0s;
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .sidebar-nav-fixed {
     width: 50px;
@@ -334,6 +339,8 @@ a.selected {
 
 .container.col-fixed-sidebar {
   position: absolute !important; 
+  width: 90%;
+  min-height: 100%;
   left: 0px;
   transition: left 0.3s ease 0.5s;
   margin-left: 100px;
@@ -384,4 +391,77 @@ a.selected {
 }
 .inline {
   display: inline-block;
+}
+
+h1.big {
+  font-size: 96px;
+}
+
+.topic-title-container {
+  float: right;  
+  border-right: 15px solid #336699;
+  height: 120px;
+  line-height: 60px;
+  margin-top: 20px;
+}
+
+.topic-title {  
+  margin: 0;
+  display: inline-block;
+}
+
+.topic-title-bottom-container {
+  -webkit-transform: rotate(90deg); 
+  -moz-transform: rotate(90deg); 
+  position: fixed;
+  bottom: 50px; 
+  right: -100px;
+  height: 50px;
+  line-height: 25px;
+  border-right: 15px solid #336699;
+  z-index: 3;
+  transition: right 0.2s;
+  -webkit-transition: right 0.2s, -webkit-transform 0.5s;
+}
+
+
+.topic-title-bottom {
+  margin: 0;  
+  display: inline-block;
+}
+
+.topic-title-bottom-container:hover {
+  cursor: pointer;
+  -webkit-transform: rotate(0deg); 
+  -moz-transform: rotate(0deg);
+  right: 0px !important;
+}
+
+.topic-title-container.disappear + .topic-title-bottom-container {
+  right: -40px;  
+}
+
+@media (max-width: 853px) {
+
+  .topic-title-container.disappear + .topic-title-bottom-container {
+    right: -20px;  
+    bottom: 20px;
+   }
+
+  .topic-title-bottom-container {
+    height: 25px; 
+    border-right: 5px solid #336699;
+  }
+
+  .topic-title-bottom {
+    font-size: 20px;  
+  }
+}
+
+.infinite {
+  background-color: white;
+}
+
+.title-container {
+  border-top: 15px solid #eb6864;
 }
