@@ -1,4 +1,12 @@
 <div class='container col-fixed-sidebar'>
+
+  <div class='row indent'>
+    <div class='pull-left title-container'>    
+      <h1 class='big'>{{topic.board.title}}</h1>
+    </div>
+  </div>
+  <hr>
+  <!--
   <div class='row'>
     <div appear-tag class='topic-title-container'>
       <a href='/#/topics/{{topic.board.title}}'>
@@ -10,7 +18,7 @@
         <h1 class='topic-title-bottom'>  {{topic.board.title}}  </h1> 
       </a>  
     </div>
-  </div>
+  </div> -->
   
   <div class='no-content' ng-show='!topic.posts.length'>
     <h1> no content </h1>    

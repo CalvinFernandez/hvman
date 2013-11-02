@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularApp', ['infinite-scroll', 'restangular', 'ui.bootstrap.typeahead','http-auth-interceptor', 'template/typeahead/typeahead.html', 'ui.tinymce', 'ngCookies', 'assert'])
+angular.module('angularApp', ['infinite-scroll', 'restangular', 'http-auth-interceptor', 'ngCookies', 'assert'])
   .config(function ($routeProvider, RestangularProvider) {
     $routeProvider
       .when('/', {
@@ -23,9 +23,9 @@ angular.module('angularApp', ['infinite-scroll', 'restangular', 'ui.bootstrap.ty
         templateUrl: 'views/PostsShow.html',
         controller: 'PostsshowCtrl'
       })
-      .when('/newPost', {
-        templateUrl: 'views/NewPost.html',
-        controller: 'NewpostCtrl'
+      .when('/compose', {
+        controller: 'ComposeCtrl',
+        templateUrl: 'views/compose.html'
       })
       .when('/login', {
         controller: 'LoginCtrl',

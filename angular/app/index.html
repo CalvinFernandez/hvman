@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css'>
         <link rel='stylesheet' href='styles/bootstrap.css'>
+        <link rel='stylesheet' href='lib/redactor/redactor.css'>
         <!-- endbuild -->
 
 </head>
@@ -46,7 +47,8 @@
               </li>
               <li class='light-top dark-bottom indent'> 
                 <h3> 
-                  <a href='#/login' class='text-inverse'> Sign in </a>
+                  <a ng-hide='userLoggedIn' href='#/login' class='text-inverse'> Login </a>
+                  <a ng-show='userLoggedIn' href='#/logout' class='text-inverse'> Logout </a>
                 </h3>
               </li>
               <li class='light-top dark-bottom indent'>
@@ -79,6 +81,31 @@
       </div>
     </div>  
     <div ng-view=""></div>
+
+    <div class='toolkit-wrapper'>
+      <div class='toolkit-container'>
+        <div class='tools navfix'>
+          <ul class='no-padding'>
+            <li class='indent'>
+              <a href='/#/compose'>
+                <h1>
+                  <span class='glyphicon glyphicon-pencil'></span>
+                </h1>
+              </a>
+            </li>
+            <li class='indent'>
+              <h1>
+                <span class='glyphicon glyphicon-home'></span>
+              </h1>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class='toolkit-hint'>
+        <span class='glyphicon glyphicon-arrow-up'></span>
+      </div>
+    </div>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
@@ -94,13 +121,14 @@
     <script src="bower_components/restangular/src/restangular.js"></script>
     <script src='bower_components/angular-bootstrap/ui-bootstrap-tpls.js'></script>
     <!--<script src='bower_components/tinymce-release/tiny_mce.js'></script>-->
-    <script src='bower_components/tinymce-release/tinymce.min.js'></script>
-    <script src='bower_components/angular-ui-tinymce/src/tinymce.js'></script>
+    <!--<script src='bower_components/tinymce-release/tinymce.min.js'></script>-->
+    <!--<script src='bower_components/angular-ui-tinymce/src/tinymce.js'></script>-->
 
         <!-- build:js scripts/modules.js -->
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="lib/redactor/redactor.min.js"></script>
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -111,17 +139,18 @@
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/logout.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/NewPost.js"></script>
         <script src="scripts/controllers/Posts.js"></script>
         <script src="scripts/controllers/postsindex.js"></script>
         <script src="scripts/controllers/PostsShow.js"></script>
         <script src="scripts/controllers/Topics.js"></script>
         <script src="scripts/controllers/tags.js"></script>
         <script src="scripts/controllers/Typeahead.js"></script>
+        <script src="scripts/controllers/compose.js"></script>
         
         <script src="scripts/services/Session.js"></script>
         <script src="scripts/directives/click-tag.js"></script>
         <script src="scripts/directives/appear-tag.js"></script>
+        <script src="scripts/directives/redactor.js"></script>
 
         <script src="scripts/http-auth-interceptor.js"></script>
         <script src="scripts/interceptor.js"></script>

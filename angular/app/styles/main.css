@@ -465,3 +465,49 @@ h1.big {
 .title-container {
   border-top: 15px solid #eb6864;
 }
+
+.toolkit-wrapper {
+  z-index: 888;
+  top:0px;
+  right:0px;
+  width: 75px;
+  height: 100%;
+  position: fixed;    
+}
+
+.toolkit-wrapper:hover .toolkit-container {
+  width: 75px;
+}
+
+.toolkit-wrapper:hover .toolkit-hint {
+  top: 10px; 
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+}
+
+.toolkit-hint {
+  position: absolute;
+  top: 95%;
+  left: 32px;
+  -webkit-transition: top 0.5s;
+  z-index: 6;
+}
+
+.toolkit-container {
+  opacity: 1;
+  background-color: white;
+  border-left: 1px solid #ECF0F1;
+  position: fixed;    
+  z-index: 5;
+  top:0px;
+  right:0px;
+  width: 0px;
+  -webkit-transition: width 0.2s 0.5s;
+  height: 100%;
+}
+
+.redactor_toolbar li a.redactor_btn_mySave {
+  background-image: none;
+  opacity: 0.7; 
+  background-image: url('assets/save.svg');
+}
