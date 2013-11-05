@@ -19,6 +19,10 @@ angular.module('angularApp', ['infinite-scroll', 'restangular', 'http-auth-inter
         templateUrl: 'views/postsindex.html',
         controller: 'PostsindexCtrl'
       })
+      .when('/posts/:id/edit', {
+        templateUrl: 'views/PostsEdit.html',
+        controller: 'PostseditCtrl'
+      })
       .when('/posts/:id', {
         templateUrl: 'views/PostsShow.html',
         controller: 'PostsshowCtrl'
@@ -26,6 +30,10 @@ angular.module('angularApp', ['infinite-scroll', 'restangular', 'http-auth-inter
       .when('/compose', {
         controller: 'ComposeCtrl',
         templateUrl: 'views/compose.html'
+      })
+      .when('/drive', {
+        controller: 'DriveCtrl',
+        templateUrl: 'views/drive.html'
       })
       .when('/login', {
         controller: 'LoginCtrl',

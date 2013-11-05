@@ -213,7 +213,7 @@ a.selected {
   left: 100px;
   width: 200px;
   height: 100%;
-  background-color: #2C9E76;
+  background-color: #2C9E76; 
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   color: #FFF8ED;
@@ -227,7 +227,7 @@ a.selected {
 }
 
 .back:active {
-  background-color: #2A9C74;
+  background-color: #2B9C74;
   -moz-box-shadow:    inset 0px 0px 10px 0px #000000;
   -webkit-box-shadow: inset 0px 0px 10px 0px #000000;
   box-shadow:         inset 0px 0px 10px 0px #000000; 
@@ -506,8 +506,39 @@ h1.big {
   height: 100%;
 }
 
+.drive-table-row:hover {
+  background-color: #FFF1F0;
+}
+
+.drive-table-row.click, .drive-table-row:active {
+ background-color: #FFF1F0; 
+}
+
+.drive-table-row .title > a {
+  color:  #777;
+}
+
+.drive-table-row .title > a:hover {
+  color: #eb6864;
+}
+
 .redactor_toolbar li a.redactor_btn_mySave {
   background-image: none;
   opacity: 0.7; 
   background-image: url('assets/save.svg');
 }
+
+.drive-toolkit-element {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.drive-toolkit-element:hover {
+  opacity: 0.7; 
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
+}
+

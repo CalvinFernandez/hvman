@@ -31,4 +31,10 @@ angular.module('angularApp')
         data: {"vote": false}
       });
     }
+  })
+  .controller('PostseditCtrl', function ($scope, Restangular, $routeParams) {
+        Restangular.one('posts', $routeParams.id).get().then(function(post) {
+          $scope.post = post;
+        });
+  
   });

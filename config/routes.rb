@@ -17,6 +17,7 @@ Human::Application.routes.draw do
 
   resources :boards
 
+  resources :drive, :only => [:index] 
 
   get 'tags' => 'tags#index' 
 

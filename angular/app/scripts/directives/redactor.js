@@ -4,6 +4,8 @@ angular.module('angularApp').
     return {
       template: '<textarea id="redactor_content"></textarea>',
       restrict: 'E',
+      scope: true,
+
       link: function($scope, $element, $attrs) {
         $(document).ready(function() {
           $scope.redactor = $("#redactor_content").redactor({
@@ -13,17 +15,26 @@ angular.module('angularApp').
               mySave: {
                 title: 'Save Button',
                 callback: function(buttonName, buttonDOM, buttonObject) {
-                  $scope.save();
+                  if (!$scope.save) {
+                    throw new Error("Redactor requires that you define a save function inside of the parent scope.");  
+                  } else {
+                    $scope.save($scope.redactor.getCode());
+                  }
                 }
               }
             }
           });
+
+          var content = $scope.$eval($attrs.content) || "";
+
+          $scope.$watch($attrs.content, function(newValue, oldValue) {
+            if (newValue !== oldValue) {
+              $scope.redactor.setCode(newValue);
+            }  
+          });
+
+          $scope.redactor.setCode(content);
         });
-      },
-      controller: function($scope) {
-        $scope.save = function() {
-          console.log($scope.redactor.getCode());
-        } 
       }
     }
   });
