@@ -15,7 +15,7 @@ Human::Application.routes.draw do
 
   resources :admins
 
-  resources :boards
+  resources :topics
 
   resources :drive, :only => [:index] 
 

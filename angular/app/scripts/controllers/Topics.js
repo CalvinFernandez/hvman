@@ -5,7 +5,7 @@ angular.module('angularApp')
 
     $scope.query = '';
 
-    var topicsIndex = Restangular.all('boards');
+    var topicsIndex = Restangular.all('topics');
 
     $scope.search = function() {
       topicsIndex.getList({'query': $scope.query}).then(function(topics) {
@@ -25,7 +25,7 @@ angular.module('angularApp')
     }); 
   })
   .controller('TopicsShowCtrl', function ($scope, Restangular, $routeParams) {
-    var topic = Restangular.one('boards', $routeParams.title);
+    var topic = Restangular.one('topics', $routeParams.title);
     $scope.page = 1;
     
     $scope.nextPage = function() {

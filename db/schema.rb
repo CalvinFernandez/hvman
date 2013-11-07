@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131006012603) do
+ActiveRecord::Schema.define(:version => 20131107002153) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -32,14 +32,6 @@ ActiveRecord::Schema.define(:version => 20131006012603) do
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
-  create_table "boards", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "title"
-  end
-
-  add_index "boards", ["title"], :name => "index_boards_on_title", :unique => true
-
   create_table "comments", :force => true do |t|
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
@@ -55,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20131006012603) do
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
     t.integer  "user_id"
-    t.integer  "board_id"
+    t.integer  "topic_id"
     t.text     "content"
     t.string   "post_image_file_name"
     t.string   "post_image_content_type"
@@ -83,6 +75,14 @@ ActiveRecord::Schema.define(:version => 20131006012603) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  create_table "topics", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "title"
+  end
+
+  add_index "topics", ["title"], :name => "index_boards_on_title", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
