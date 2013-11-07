@@ -35,6 +35,10 @@ angular.module('angularApp')
   .controller('PostseditCtrl', function ($scope, Restangular, $routeParams) {
         Restangular.one('posts', $routeParams.id).get().then(function(post) {
           $scope.post = post;
+          $scope.post.topics = [];
         });
-  
+
+      $scope.addToTopics = function(topic) {
+        $scope.post.topics.push(topic);
+      }      
   });

@@ -20,7 +20,7 @@ angular.module('angularApp', ['infinite-scroll', 'restangular', 'http-auth-inter
         controller: 'PostsindexCtrl'
       })
       .when('/posts/:id/edit', {
-        templateUrl: 'views/PostsEdit.html',
+        templateUrl: 'views/compose.html',
         controller: 'PostseditCtrl'
       })
       .when('/posts/:id', {

@@ -1,3 +1,50 @@
 <div class='container no-padding col-fixed-sidebar'>
-  <redactor></redactor>
+  <div class='compose-header-container'>
+    <div class='compose-return'>
+      <a href='/#/drive' role='button' class='drive-button'>
+          <span class='glyphicon glyphicon-hdd'></span>
+      </a>
+    </div>
+    <div class='post-title-container'>
+      <div ng-click='editPost = true' ng-show='!editPost' class='post-title'>
+        <h3 class='no-margin'> {{post.title}}  </h3>
+      </div>
+      <div ng-show='editPost' class='edit-post-title'>
+        <input type='text' ng-model='post.title'>
+        <span ng-click='editPost = false' class='glyphicon glyphicon-floppy-save save-post-title'> 
+      </div>
+    </div>
+    <div class='publish-container'>
+      <button type='button' class='btn-primary'>Publish</button>
+    </div>
+  </div>
+  <redactor content='post.content'></redactor>
+
+  <div class='hv-modal'>
+    <div class='container'>      
+      <div class='row indent'>
+        <div class='pull-left title-container'>    
+          <h3>Publish</h3>
+        </div>
+      </div>
+      <div class='row margin-top'>
+        <p class='indent'> Select topics to publish under.</p>
+      </div>
+      <div ng-controller='TopicsCtrl' class='topic-search-container'>
+        <form ng-submit='search()'>
+          <input ng-model='query' class='form-control' type='text'> 
+          <ul class='list-group'> 
+            <li ng-click='addToTopics(topic)' class='list-group-item' ng-repeat='topic in topics'>
+              {{topic.title}}
+            </li>
+          </ul>
+        </form>
+      </div>
+      <div class='tagged-topics'>
+        <div ng-repeat='topic in post.topics'>        
+          {{topic.title}}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
