@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class='publish-container'>
-      <button type='button' class='btn-primary'>Publish</button>
+      <button click-tag='.hv-modal' type='button' class='hv-button hv-button-primary'>Publish</button>
     </div>
   </div>
   <redactor content='post.content'></redactor>
@@ -30,19 +30,42 @@
       <div class='row margin-top'>
         <p class='indent'> Select topics to publish under.</p>
       </div>
-      <div ng-controller='TopicsCtrl' class='topic-search-container'>
-        <form ng-submit='search()'>
-          <input ng-model='query' class='form-control' type='text'> 
-          <ul class='list-group'> 
-            <li ng-click='addToTopics(topic)' class='list-group-item' ng-repeat='topic in topics'>
-              {{topic.title}}
-            </li>
-          </ul>
-        </form>
+      <div class='row indent'>
+        <div class='well plain'>
+          <div class='tagged-topics'>
+            <div class='topic-tag' ng-repeat='topic in post.topics'>
+              <div class='topic-tag-title'>
+                {{topic.title}}
+              </div>
+              <div ng-click="removeFromTopics(topic)" class='topic-tag-delete'>
+                <span class='glyphicon glyphicon-remove'></span>
+              </div>
+            </div>
+            <div ng-controller='TopicsCtrl' class='topic-search-container'>
+              <form ng-submit='search()'>
+                <div class='input-group'>
+                  <span ng-click='search()' class='input-group-addon input-group-addon-left'>
+                    <span class='glyphicon glyphicon-search'></span>
+                  </span>
+                  <input ng-model='query' class='form-control' type='text'>
+                  <span ng-click='clearResults()' class='input-group-addon input-group-addon-right'>
+                    <span class='glyphicon glyphicon-remove'></span>
+                  </span>
+                </div>
+                <ul class='list-group'>
+                  <li ng-click='addToTopics(topic)' class='list-group-item' ng-repeat='topic in topics'>
+                    {{topic.title}}
+                  </li>
+                </ul>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class='tagged-topics'>
-        <div ng-repeat='topic in post.topics'>        
-          {{topic.title}}
+      <div class='row indent'>
+        <div class='publish-button'>
+          <button ng-click='publish()' type='button' class='hv-button hv-button-success'>Publish</button>
+          <button click-tag='.hv-modal' type='button' class='hv-button hv-button-default'>Cancel</button>
         </div>
       </div>
     </div>

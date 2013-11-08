@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131107002153) do
+ActiveRecord::Schema.define(:version => 20131107031241) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20131107002153) do
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
     t.integer  "user_id"
-    t.integer  "topic_id"
     t.text     "content"
     t.string   "post_image_file_name"
     t.string   "post_image_content_type"
@@ -57,6 +56,11 @@ ActiveRecord::Schema.define(:version => 20131107002153) do
     t.integer  "flag",                    :default => 0
     t.string   "title"
     t.text     "link"
+  end
+
+  create_table "posts_topics", :id => false, :force => true do |t|
+    t.integer "post_id"
+    t.integer "topic_id"
   end
 
   create_table "taggings", :force => true do |t|

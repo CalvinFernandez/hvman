@@ -7,6 +7,11 @@ angular.module('angularApp')
 
     var topicsIndex = Restangular.all('topics');
 
+    $scope.clearResults = function() {
+      $scope.query = '';
+      $scope.topics = [];  
+    }
+
     $scope.search = function() {
       topicsIndex.getList({'query': $scope.query}).then(function(topics) {
         $scope.topics = [];

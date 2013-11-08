@@ -1,12 +1,12 @@
 class Post < ActiveRecord::Base
   attr_accessible :title, :content, :post_image, 
-                  :user_id, :topic_id, :verified,
+                  :user_id, :verified,
                   :flag, :link
 
   has_attached_file :post_image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   
   belongs_to :user
-  belongs_to :topic, touch: true
+  has_and_belongs_to_many :topics
 
   has_many :comments, :as => :commentable
   acts_as_voteable

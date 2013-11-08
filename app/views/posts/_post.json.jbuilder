@@ -10,4 +10,4 @@ if user_signed_in?
 end
 
 json.comments post.comments
-json.tags post.tag_list
+json.topics post.topics

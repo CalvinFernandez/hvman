@@ -5,7 +5,7 @@ class Topic < ActiveRecord::Base
   include Tire::Model::Callbacks
 
   attr_accessible :title
-  has_many :posts
+  has_and_belongs_to_many :posts
 
   validates_associated :posts
   validates :title, :presence => true

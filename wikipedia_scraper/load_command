@@ -1,3 +1,3 @@
 USE HUMAN_DEVELOPMENT;
 
-LOAD DATA INFILE '~/Dropbox/CSFiles/humanTesting/human/wikipedia_scraper/enwiki_alpha' IGNORE INTO TABLE boards fields terminated by '->' enclosed by '"' lines terminated by '\n' (title) SET created_at = now(), updated_at = now();
+LOAD DATA INFILE '~/Dropbox/CSFiles/humanTesting/human/wikipedia_scraper/enwiki_alpha' IGNORE INTO TABLE topics fields terminated by '->' enclosed by '"' lines terminated by '\n' (title) SET created_at = now(), updated_at = now();

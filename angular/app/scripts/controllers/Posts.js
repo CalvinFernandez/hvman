@@ -32,13 +32,38 @@ angular.module('angularApp')
       });
     }
   })
+
   .controller('PostseditCtrl', function ($scope, Restangular, $routeParams) {
-        Restangular.one('posts', $routeParams.id).get().then(function(post) {
-          $scope.post = post;
-          $scope.post.topics = [];
-        });
+      Restangular.one('posts', $routeParams.id).get().then(function(post) {
+        $scope.post = post;
+      });
+       
+      function topicAt(topic) {
+        var title = topic.title;
+        if ($scope.post.topics && $scope.post.topics.length !== 0) {
+          for (var i = 0; i < $scope.post.topics.length; i ++ ) {
+            if (title === $scope.post.topics[i].title) {
+              return i;
+            }
+          }
+        }
+        return -1; 
+      }
+
+      $scope.removeFromTopics = function(topic) {
+        var idx = topicAt(topic);    
+        if (idx !== -1) {
+          $scope.post.topics.splice(idx, 1);   
+        }
+      }
 
       $scope.addToTopics = function(topic) {
-        $scope.post.topics.push(topic);
-      }      
+        if (topicAt(topic) ===  -1) {
+          $scope.post.topics.push(topic);
+        }
+      }
+
+      $scope.publish = function() {
+        $scope.post.put();            
+      }
   });
