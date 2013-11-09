@@ -33,7 +33,7 @@
       <div class='row indent'>
         <div class='well plain'>
           <div class='tagged-topics'>
-            <div class='topic-tag' ng-repeat='topic in post.topics'>
+            <div class='topic-tag' ng-repeat='topic in dirty_topics'>
               <div class='topic-tag-title'>
                 {{topic.title}}
               </div>
@@ -65,7 +65,7 @@
       <div class='row indent'>
         <div class='publish-button'>
           <button ng-click='publish()' type='button' class='hv-button hv-button-success'>Publish</button>
-          <button click-tag='.hv-modal' type='button' class='hv-button hv-button-default'>Cancel</button>
+          <button ng-click='cancel()' click-tag='.hv-modal' type='button' class='hv-button hv-button-default'>Cancel</button>
         </div>
       </div>
     </div>

@@ -66,4 +66,8 @@ angular.module('angularApp')
       $scope.publish = function() {
         $scope.post.put();            
       }
+
+      $scope.save = function(data) {
+        $scope.post.content = data;
+      }
   });
