@@ -7,6 +7,8 @@ Human::Application.routes.draw do
 
   resources :posts
 
+  resources :topics
+
   resources :comments
 
   get 'users/logged_in' => 'users#logged_in'
@@ -15,7 +17,6 @@ Human::Application.routes.draw do
 
   resources :admins
 
-  resources :topics
 
   resources :drive, :only => [:index] 
 

@@ -39,10 +39,10 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find_by_id(params[:id])
     if @post
-      @post.update_attributes(params[:post])
+      @post.update_attributes(params)
       render :json => @post
     else
-      render :json => {}, :status => 404
+      render :json => {}, :status => 400
     end
   end 
 
@@ -53,6 +53,15 @@ class PostsController < ApplicationController
     else
       render :json => {}, :status => 404
     end
+  end
+
+  def sanitize(model)
+    sanitized = {} 
+
+    Post.attr_accessible[:default].each do |attr| 
+      sanitized[attr] = model[attr] if model[attr]
+    end
+    sanitized
   end
 
   def vote_on
