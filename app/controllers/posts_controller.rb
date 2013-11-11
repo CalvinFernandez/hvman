@@ -14,12 +14,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(params[:post])
+    @post = current_user.posts.new(Post.sanitize(params[:post]))
     if @post.valid?
-      if params[:tags] 
-        @post.tag_list.add(params[:tags])    
-      end
+
       @post.save
+      @post.update_topics(params[:post])
+
       render :json => @post
     else
       render :json => {}, :status => 500

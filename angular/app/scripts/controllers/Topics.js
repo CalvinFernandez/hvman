@@ -23,11 +23,12 @@ angular.module('angularApp')
 
     $scope.topics = [];
 
+    /*
     topicsIndex.getList().then(function(topics) {
       for (var i = 0; i < topics.length; i ++) {
         $scope.topics.push(topics[i]);
       }
-    }); 
+    }); */
   })
   .controller('TopicsShowCtrl', function ($scope, Restangular, $routeParams) {
     var topic = Restangular.one('topics', $routeParams.title);

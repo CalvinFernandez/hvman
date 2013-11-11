@@ -11,16 +11,45 @@
       </div>
       <div ng-show='editPost' class='edit-post-title'>
         <input type='text' ng-model='post.title'>
-        <span ng-click='editPost = false' class='glyphicon glyphicon-floppy-save save-post-title'> 
+        <span ng-click='editPost = false' class='glyphicon glyphicon-ok save-post-title'> 
+      </div>
+      <div class='hv-spinner' operation='put' what='posts' spinner> 
+        <div spinner-active>
+          Saving ... 
+        </div>
+        <div spinner-success>
+          <small>Saved</small>
+        </div>
+        <div class='hv-spinner-error' spinner-error>
+          <small>Unable to save document!</small>
+        </div>
       </div>
     </div>
     <div class='publish-container'>
-      <button click-tag='.hv-modal' type='button' class='hv-button hv-button-primary'>Publish</button>
+      <button ng-show='post.topics.length' click-tag='.hv-modal' type='button' class='hv-button hv-button-success'>Published</button>
+      <button ng-show='!post.topics.length' click-tag='.hv-modal' type='button' class='hv-button  hv-button-primary'>Publish</button>
     </div>
   </div>
+
+  
+
+  <div operation='get' what='posts' spinner>
+    <div spinner-active>
+      Loading ... 
+    </div>
+    <div spinner-success>
+    </div>
+    <div spinner-error>
+      An error occured while loading!
+    </div>
+  </div>
+
   <redactor content='post.content'></redactor>
 
   <div class='hv-modal'>
+    <div click-tag='.hv-modal' class='hv-modal-close'>
+      <span class='glyphicon glyphicon-remove'></span>
+    </div>
     <div class='container'>      
       <div class='row indent'>
         <div class='pull-left title-container'>    
@@ -28,7 +57,7 @@
         </div>
       </div>
       <div class='row margin-top'>
-        <p class='indent'> Select topics to publish under.</p>
+        <p class='indent'> Search for topics to publish under.</p>
       </div>
       <div class='row indent'>
         <div class='well plain'>
@@ -48,7 +77,7 @@
                     <span class='glyphicon glyphicon-search'></span>
                   </span>
                   <input ng-model='query' class='form-control' type='text'>
-                  <span ng-click='clearResults()' class='input-group-addon input-group-addon-right'>
+                  <span ng-show='query' ng-click='clearResults()' class='input-group-addon input-group-addon-right'>
                     <span class='glyphicon glyphicon-remove'></span>
                   </span>
                 </div>
@@ -64,8 +93,25 @@
       </div>
       <div class='row indent'>
         <div class='publish-button'>
-          <button ng-click='publish()' type='button' class='hv-button hv-button-success'>Publish</button>
+          <button ng-click='publish()' type='button' class='hv-button hv-button-success'><span ng-show='!post.topics.length'>Publish</span><span ng-show='post.topics.length'>Publish Again!</span></button>
           <button ng-click='cancel()' click-tag='.hv-modal' type='button' class='hv-button hv-button-default'>Cancel</button>
+          <div class='hv-spinner' operation='put' what='posts' spinner> 
+            <div spinner-active>
+              <h4 class='inline'>
+               Publishing ... 
+             </h4>
+            </div>
+            <div class='hv-spinner-success' spinner-success>
+              <h4>
+                <span class='glyphicon glyphicon-ok'></span>   
+              </h4>
+            </div>
+            <div class='hv-spinner-error' spinner-error>
+              <h4>
+                <span class='glyphicon glyphicon-remove'></span>
+              </h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>

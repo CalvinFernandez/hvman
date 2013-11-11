@@ -389,6 +389,7 @@ a.selected {
   font-family: "freight-sans-pro", "Myriad Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
   font-weight: 400;
 }
+
 .inline {
   display: inline-block;
 }
@@ -546,6 +547,10 @@ h1.big {
   display: inline-block;
 }
 
+.post-title {
+  display: inline-block;
+}
+
 .post-title:hover {
   cursor:pointer;
   opacity: 0.7;
@@ -621,6 +626,17 @@ a.drive-button:active {
   top: 0%;
   height: 100%;
   -webkit-transition: opacity 0.3s ease;
+}
+
+.hv-modal-close {
+  position: absolute;    
+  right: 15px;
+  top: 10px;
+}
+
+.hv-modal-close:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .hv-modal.click {
@@ -806,4 +822,30 @@ div.topic-tag-delete:hover {
 
 .hv-button-default:active {
   background-color: #A0A0A0;
+}
+
+.hv-spinner {
+  display: inline-block;
+}
+
+.hv-spinner .hv-spinner-success {
+  color: #4FB956;
+}
+
+.hv-spinner .hv-spinner-success h1,
+.hv-spinner .hv-spinner-success h2,
+.hv-spinner .hv-spinner-success h3,
+.hv-spinner .hv-spinner-success h4,
+.hv-spinner .hv-spinner-success h5,
+.hv-spinner .hv-spinner-success h6 {
+  color: #4FB956;
+}
+
+.hv-spinner .hv-spinner-error h1,
+.hv-spinner .hv-spinner-error h2,
+.hv-spinner .hv-spinner-error h3,
+.hv-spinner .hv-spinner-error h4,
+.hv-spinner .hv-spinner-error h5,
+.hv-spinner .hv-spinner-error h6 {
+  color: #eb6864;
 }

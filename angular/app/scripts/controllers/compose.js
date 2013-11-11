@@ -7,6 +7,8 @@ angular.module('angularApp')
     $scope.post.title = 'Untitled';
     $scope.post.topics = [];
 
+    var basePosts = Restangular.all('posts');
+
     var _this = this;
 
     // Dirty topics is a copy of the array that we'll reference
@@ -55,12 +57,14 @@ angular.module('angularApp')
 
     $scope.publish = function() {
       $scope.post.topics = $scope.dirty_topics;
-      $scope.post.put();
+      $scope.save();
     }
    
-    $scope.save = function(data) {
-      $scope.post.content = data;
-      $scope.post.put();
+    $scope.save = function() {
+      $scope.post.put && $scope.post.put() || 
+        basePosts.post($scope.post).then(function(post) {
+          $scope.post = post;
+        });
     }
 
     $scope.cancel = function() {
