@@ -1,26 +1,30 @@
+<div class='hv-spinner' operation='getList' what='drive' spinner 
+  spinner-active='.drive-button'
+  spinner-error='.drive-load-error'>
+</div>
+
 <div class="container no-padding col-fixed-sidebar">
   <div class='compose-return'>
       <a href='/#/drive' role='button' class='drive-button'>
-          <span class='glyphicon glyphicon-hdd'></span>
       </a>
   </div>
   <div class='col-md-12'> 
     <div class='row'>
       <div class='col-md-4'>
         <h4> My Drive </h4>    
+        <div class='hv-spinner hv-spinner-error drive-load-error'>
+          <small> Unable to load posts! </small> 
+        </div>
       </div>
-      <div class='col-md-2 col-md-offset-6'>
-        <a href='/#/compose'>
-          <h4 class='drive-toolkit-element'>
-            <span class='glyphicon glyphicon-plus'></span>      
-          </h4>
+
+
+      <div class='col-md-3 col-md-offset-5'>
+        <a href='/#/compose' class='hv-button hv-button-primary'>
+          Compose
         </a>
-        <h4 class='drive-toolkit-element'>
-          <span class='glyphicon glyphicon-share'></span>      
-        </h4>
-        <h4 class='drive-toolkit-element'>
+        <button ng-show='selected' ng-click='deletePosts()' type='button' class='hv-button hv-button-default'>
           <span class='glyphicon glyphicon-trash'></span>      
-        </h4>
+        </button>
       </div>
     </div>
     <table class='drive-table table border-bottom'>
@@ -32,7 +36,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr click-tag ng-repeat='post in posts' class='drive-table-row' ng-click='rowSelected = !rowSelected'>
+        <tr click-tag ng-repeat='post in posts' class='drive-table-row' ng-click='rowSelected = !rowSelected; select(post)'>
           <td><input type='checkbox' ng-checked='rowSelected'></td>
           <td class='title'> <a href='/#/posts/{{post.id}}/edit'> {{post.title}}</a></td>
           <td> {{post.updated_at}} </td>
@@ -40,13 +44,6 @@
       </tbody>
     </table>
     <div class='col-md-3 margin-bottom'>
-      <!--
-      <ul class='pager'>
-        <li class='previous'>
-        <button class='btn btn-primary' type='button'>&larr; Newer </button>
-        <button class='btn btn-primary'> Older &rarr; </button>
-      </ul>
-      -->
       
       <button ng-show='page > 0' ng-click='back()' type='button' class='btn btn-primary hv-btn'>
         &larr;
@@ -55,12 +52,6 @@
       <button ng-show='posts' ng-click='next()' type='button' class='btn btn-primary hv-btn'>
         &rarr;
       </button>
-
-      <!--
-      <button type='button' class='btn btn-primary hv-btn'>
-        {{page + 1}}
-      </button> -->
-
     </div>
   </div>
 </div>

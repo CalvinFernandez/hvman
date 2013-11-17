@@ -55,37 +55,45 @@ angular.module('restangularSpinner', ['restangular'])
       restrict: 'A',
       scope: true,
       link: function($scope, $element, $attrs) {
-        var operation = $attrs.operation;
+        $element.css('display', 'none');
+        var operations = $attrs.operation.split(' ');
         var what = $attrs.what;
         var url = $attrs.url;
 
-        function allOff() {
-          $scope.spinnerSuccessOff(); 
-          $scope.spinnerActiveOff();
-          $scope.spinnerErrorOff();
-        }
+        var activeElement = $attrs.spinnerActive;
+        var successElement = $attrs.spinnerSuccess;
+        var errorElement = $attrs.spinnerError;
 
         var match = function(o, w, u) {
-          if (what === w && operation === o) {
-            return true;   
-          } else {
-            return false
+          if (what === w) {
+            for (var i = 0; i < operations.length; i ++) {
+              if (operations[i] === o) {
+                return true;
+              }
+            }
           }
-        }  
+          return false;
+        }
+        
+        function allOff() {
+          activeElement  && $(activeElement).removeClass('spinning');
+          successElement && $(successElement).removeClass('spinning'); 
+          successElement && $(errorElement).removeClass('spinning'); 
+        }
 
         var active = function() {
           allOff();
-          $scope.spinnerActiveOn();
+          activeElement && $(activeElement).addClass('spinning');
         }
 
         var success = function() {
           allOff();
-          $scope.spinnerSuccessOn();
+          successElement && $(successElement).addClass('spinning');
         }
 
         var error = function() {
           allOff();
-          $scope.spinnerErrorOn();
+          errorElement && $(errorElement).addClass('spinning');
         }
         
         $scope.$root.registerRestangularSpinner(
@@ -99,6 +107,7 @@ angular.module('restangularSpinner', ['restangular'])
     }
   })
 
+/*
   .directive('spinnerActive', function() {
     return {
       restrict: 'A',
@@ -107,6 +116,7 @@ angular.module('restangularSpinner', ['restangular'])
       link: function($scope, $element, $attrs) {
         $element.css('display', 'none');
       },
+
       controller: function($scope, $element, $attrs) {
         $scope.spinnerActiveOn = function() {
           $element.css('display', 'inline-block');
@@ -149,3 +159,4 @@ angular.module('restangularSpinner', ['restangular'])
       }
     }
   });
+  */

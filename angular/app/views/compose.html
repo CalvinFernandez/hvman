@@ -2,7 +2,6 @@
   <div class='compose-header-container'>
     <div class='compose-return'>
       <a href='/#/drive' role='button' class='drive-button'>
-          <span class='glyphicon glyphicon-hdd'></span>
       </a>
     </div>
     <div class='post-title-container'>
@@ -13,34 +12,33 @@
         <input type='text' ng-model='post.title'>
         <span ng-click='editPost = false' class='glyphicon glyphicon-ok save-post-title'> 
       </div>
-      <div class='hv-spinner' operation='put' what='posts' spinner> 
-        <div spinner-active>
-          Saving ... 
-        </div>
-        <div spinner-success>
-          <small>Saved</small>
-        </div>
-        <div class='hv-spinner-error' spinner-error>
-          <small>Unable to save document!</small>
-        </div>
+
+      <div class='hv-spinner save-success-status'>
+        <small>Saved</small>
       </div>
+      <div class='hv-spinner hv-spinner-error save-error-status'>
+        <small>Unable to save document!</small>
+      </div>
+      <div class='hv-spinner' operation='put post' what='posts' spinner 
+        spinner-active='.redactor_btn_mySave' spinner-success='.save-success-status'
+        spinner-error='.save-error-status'> 
+      </div>
+
     </div>
+
     <div class='publish-container'>
       <button ng-show='post.topics.length' click-tag='.hv-modal' type='button' class='hv-button hv-button-success'>Published</button>
       <button ng-show='!post.topics.length' click-tag='.hv-modal' type='button' class='hv-button  hv-button-primary'>Publish</button>
     </div>
   </div>
 
-  
-
   <div operation='get' what='posts' spinner>
-    <div spinner-active>
-      Loading ... 
+    <div class='hv-spinner-active gif' spinner-active>
     </div>
     <div spinner-success>
     </div>
-    <div spinner-error>
-      An error occured while loading!
+    <div 'hv-spinner-error' spinner-error>
+      <h6> An error occured while loading! </h6>
     </div>
   </div>
 
@@ -52,7 +50,7 @@
     </div>
     <div class='container'>      
       <div class='row indent'>
-        <div class='pull-left title-container'>    
+        <div class='pull-left title-container'>
           <h3>Publish</h3>
         </div>
       </div>
@@ -92,25 +90,27 @@
         </div>
       </div>
       <div class='row indent'>
-        <div class='publish-button'>
-          <button ng-click='publish()' type='button' class='hv-button hv-button-success'><span ng-show='!post.topics.length'>Publish</span><span ng-show='post.topics.length'>Publish Again!</span></button>
+        <div class='publish-button-container'>
+          <button ng-show='!post.topics.length' ng-click='publish()' type='button' class='hv-button hv-button-success'>Publish</button>
+          <button ng-show='post.topics.length' ng-click='unpublish()' type='button' class='hv-button hv-button-primary'>Unpublish</button>
           <button ng-click='cancel()' click-tag='.hv-modal' type='button' class='hv-button hv-button-default'>Cancel</button>
-          <div class='hv-spinner' operation='put' what='posts' spinner> 
-            <div spinner-active>
-              <h4 class='inline'>
-               Publishing ... 
-             </h4>
-            </div>
-            <div class='hv-spinner-success' spinner-success>
-              <h4>
-                <span class='glyphicon glyphicon-ok'></span>   
-              </h4>
-            </div>
-            <div class='hv-spinner-error' spinner-error>
-              <h4>
-                <span class='glyphicon glyphicon-remove'></span>
-              </h4>
-            </div>
+
+          <div class='hv-spinner-active'>
+          </div>
+
+          <div class='hv-spinner hv-spinner-success publish-success'>
+            <span class='glyphicon glyphicon-ok'></span>
+          </div>
+
+          <div class='hv-spinner hv-spinner-error publish-error'>
+            <span class='glyphicon glyphicon-remove'></span>
+          </div>
+
+          <div class='hv-spinner' operation='put post' what='posts' spinner
+            spinner-active='.hv-spinner-active'
+            spinner-success='.publish-success'
+            spinner-error='.publish-error'
+            ></div>
           </div>
         </div>
       </div>

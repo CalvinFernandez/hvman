@@ -59,6 +59,12 @@ angular.module('angularApp')
       $scope.post.topics = $scope.dirty_topics;
       $scope.save();
     }
+
+    $scope.unpublish = function() {
+      $scope.dirty_topics = [];
+      $scope.post.topics = [];
+      $scope.save();
+    }
    
     $scope.save = function() {
       $scope.post.put && $scope.post.put() || 

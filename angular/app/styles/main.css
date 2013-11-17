@@ -527,6 +527,14 @@ h1.big {
   background-image: none;
   opacity: 0.7; 
   background-image: url('assets/save.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.redactor_toolbar li a.redactor_btn_mySave.spinning {
+  background-image: url('assets/spinner.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .drive-toolkit-element {
@@ -569,10 +577,15 @@ h1.big {
 a.drive-button {
   border: 2px solid #eb6864;
   border-style: solid outset outset solid;
-
   display: inline-block;
   color: white;
   background-color: #eb6864;
+
+  background-image: url('assets/drive.svg');
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+
   padding-top: 20px;
   padding-left: 10px;
   height: 60px;    
@@ -585,6 +598,12 @@ a.drive-button:hover {
 
 a.drive-button:active {
   background-color: #e05c58;
+}
+
+a.drive-button.spinning {
+  background-image: url('assets/red_spinner.gif');
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .compose-header-container {
@@ -794,6 +813,10 @@ div.topic-tag-delete:hover {
   background-color: #E25E5B;
 }
 
+a.hv-button-primary:hover {
+  color: white;
+}
+
 .hv-button-primary:active {
   background-color: #D85551;
 }
@@ -832,20 +855,91 @@ div.topic-tag-delete:hover {
   color: #4FB956;
 }
 
-.hv-spinner .hv-spinner-success h1,
-.hv-spinner .hv-spinner-success h2,
-.hv-spinner .hv-spinner-success h3,
-.hv-spinner .hv-spinner-success h4,
-.hv-spinner .hv-spinner-success h5,
-.hv-spinner .hv-spinner-success h6 {
+.hv-spinner .hv-spinner-active.gif {
+  min-width: 20px;
+  min-height: 20px;
+  background-image: url('assets/spinner.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.save-success-status {
+  display: none;
+}
+
+.save-success-status.spinning {
+  display: inline-block;
+}
+
+.save-error-status {
+  display: none;
+}
+
+.save-error-status.spinning {
+  display: inline-block;
+}
+
+.hv-spinner-active {
+  display: none;
+  width: 20px;
+  height: 20px;
+  background-image: url('assets/spinner.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.hv-spinner-active.spinning {
+  display: inline-block;   
+}
+
+.publish-success {
+  display: inline-block;
+  opacity: 0;
+}
+
+.publish-success.spinning {
+   opacity: 1;
+  -webkit-transition: opacity 0.3s ease;
+}
+
+.publish-error {
+  display: inline-block;
+  opacity: 0;
+}
+
+.publish-error.spinning {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease;
+}
+
+.drive-load-error {
+  display: none;
+}
+
+.drive-load-error.spinning {
+  display: inline-block;
+}
+
+.hv-spinner.hv-spinner-success,
+.hv-spinner.hv-spinner-success p,
+.hv-spinner.hv-spinner-success h1,
+.hv-spinner.hv-spinner-success h2,
+.hv-spinner.hv-spinner-success h3,
+.hv-spinner.hv-spinner-success h4,
+.hv-spinner.hv-spinner-success h5,
+.hv-spinner.hv-spinner-success h6, 
+.hv-spinner.hv-spinner-success small {
   color: #4FB956;
 }
 
-.hv-spinner .hv-spinner-error h1,
-.hv-spinner .hv-spinner-error h2,
-.hv-spinner .hv-spinner-error h3,
-.hv-spinner .hv-spinner-error h4,
-.hv-spinner .hv-spinner-error h5,
-.hv-spinner .hv-spinner-error h6 {
+.hv-spinner.hv-spinner-error,
+.hv-spinner.hv-spinner-error p,
+.hv-spinner.hv-spinner-error h1,
+.hv-spinner.hv-spinner-error h2,
+.hv-spinner.hv-spinner-error h3,
+.hv-spinner.hv-spinner-error h4,
+.hv-spinner.hv-spinner-error h5,
+.hv-spinner.hv-spinner-error h6,
+.hv-spinner.hv-spinner-error small {
   color: #eb6864;
 }
