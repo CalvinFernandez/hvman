@@ -30,6 +30,14 @@ angular.module('angularApp')
       });
     }
 
+    function copy(from) {
+      var to = [];  
+      for (var i = 0; i < from.length; i ++) {
+        to.push(from[i]);
+      }
+      return to;
+    }
+
     function topicAt(arr, topic) {
       var title = topic.title;
       if (arr && arr.length !== 0) {
@@ -56,7 +64,7 @@ angular.module('angularApp')
     }
 
     $scope.publish = function() {
-      $scope.post.topics = $scope.dirty_topics;
+      $scope.post.topics = copy($scope.dirty_topics);  
       $scope.save();
     }
 

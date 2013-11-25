@@ -5,23 +5,24 @@ angular.module('restangularSpinner', ['restangular'])
 
     $rootScope.registerRestangularSpinner = function(data) {
       $rootScope.restangularSpinners.push(data);
-    }     
+      return $rootScope.restangularSpinners.length - 1;
+    }
 
-    $rootScope.fireRestangularSpinners = function(operation, what, url) {
-      var len = $rootScope.restangularSpinners.length;            
-      for (var i = 0; i < len; i ++) {
-        var candidate = $rootScope.restangularSpinners[i];
-        if (candidate.matches(operation, what, url)) {
-          candidate.fire();   
-        }
-      } 
+    $rootScope.unregisterRestangularSpinner = function(idx) {
+      /*
+       * Sets the index of the spinner to empty removing it from the 
+       * array will mess up indices of other spinners
+       */
+      if ($rootScope.restangularSpinners[idx]) {
+        $rootScope.restangularSpinners[idx] = '';
+      }
     }
 
     var fireSpinners = function(operation, what, url, method) {
       var len = $rootScope.restangularSpinners.length;            
       for (var i = 0; i < len; i ++) {
         var candidate = $rootScope.restangularSpinners[i];
-        if (candidate.matches(operation, what, url)) {
+        if (candidate && candidate.matches(operation, what, url)) {
           if (method === 'active') {
             candidate.active();
           } else if (method === 'success') {
@@ -63,6 +64,8 @@ angular.module('restangularSpinner', ['restangular'])
         var activeElement = $attrs.spinnerActive;
         var successElement = $attrs.spinnerSuccess;
         var errorElement = $attrs.spinnerError;
+        var activeHideInnerHtml = $attrs.spinnerActiveHideInnerHtml || false;
+        var activeInnerHtml; // Don't initialize here because run time might change inner html;
 
         var match = function(o, w, u) {
           if (what === w) {
@@ -76,14 +79,28 @@ angular.module('restangularSpinner', ['restangular'])
         }
         
         function allOff() {
-          activeElement  && $(activeElement).removeClass('spinning');
-          successElement && $(successElement).removeClass('spinning'); 
-          successElement && $(errorElement).removeClass('spinning'); 
+          if (activeElement)  {
+            var elem = $(activeElement);
+            elem.removeClass('spinning');
+            if (activeHideInnerHtml) {
+              elem.html(activeInnerHtml);
+            } 
+          } 
+
+          successElement && $(successElement).removeClass('spinning');
+          errorElement   && $(errorElement).removeClass('spinning'); 
         }
 
         var active = function() {
           allOff();
-          activeElement && $(activeElement).addClass('spinning');
+          if (activeElement) {
+            var elem = $(activeElement);
+            elem.addClass('spinning');
+            if (activeHideInnerHtml) {
+              activeInnerHtml = elem.html();
+              elem.html('');
+            }
+          }
         }
 
         var success = function() {
@@ -96,67 +113,20 @@ angular.module('restangularSpinner', ['restangular'])
           errorElement && $(errorElement).addClass('spinning');
         }
         
-        $scope.$root.registerRestangularSpinner(
+        var spinnerIndex = $scope.$root.registerRestangularSpinner(
           {
             'matches':  match,
             'active':   active,
             'success':  success, 
             'error':    error
         })
-      }
-    }
-  })
 
-/*
-  .directive('spinnerActive', function() {
-    return {
-      restrict: 'A',
-      scope: false,
-
-      link: function($scope, $element, $attrs) {
-        $element.css('display', 'none');
-      },
-
-      controller: function($scope, $element, $attrs) {
-        $scope.spinnerActiveOn = function() {
-          $element.css('display', 'inline-block');
-        }
-        $scope.spinnerActiveOff = function() {
-          $element.css('display', 'none');
-        }
-      } 
-    }
-  })
-  .directive('spinnerSuccess', function() {
-    return {
-      restrict: 'A',
-      link: function($scope, $element, $attrs) {
-        $element.css('display', 'none');
-      },
-      controller: function($scope, $element, $attrs) {
-        $scope.spinnerSuccessOn = function() {
-          $element.css('display', 'inline-block');
-        }
-        $scope.spinnerSuccessOff = function() {
-          $element.css('display', 'none');
-        }
-      }
-    }
-  })
-  .directive('spinnerError', function() {
-    return {
-      restrict: 'A',
-      link: function($scope, $element, $attrs) {
-        $element.css('display', 'none');
-      },
-      controller: function($scope, $element, $attrs) {
-        $scope.spinnerErrorOn = function() {
-          $element.css('display', 'inline-block');
-        }
-        $scope.spinnerErrorOff = function() {
-          $element.css('display', 'none');
-        }
+        /*
+         * remove self from registered spinners
+         */
+        $scope.$on('$destroy', function() {
+          $scope.$root.unregisterRestangularSpinner(spinnerIndex);    
+        });
       }
     }
   });
-  */

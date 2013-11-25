@@ -13,14 +13,13 @@ angular.module('angularApp')
         count += 1;    
       }  
       return count === 0;
-    } 
+    }
 
     function get() {
       drive.getList({'page': $scope.page}).then(function(posts) {
         $scope.posts = posts;
       });  
     }
-
 
     $scope.select = function(post) {
       if (!$scope.selected) {
@@ -36,9 +35,22 @@ angular.module('angularApp')
       }
     }
 
-    $scope.deletePosts = function() {
+    function deleteClosure(key) {
+      Restangular.one('posts', key).remove().then(function() {
+        $scope.posts = _.reject($scope.posts, function(post) {
+            return post.id == key;
+        });
+      });
+    }
 
-    } 
+    $scope.deletePosts = function() {
+      if ($scope.selected) {
+        for (var key in $scope.selected ) {
+          deleteClosure(key);
+        }
+      }
+      $scope.selected = '';
+    }
 
     $scope.next = function() {
       $scope.page += 1;

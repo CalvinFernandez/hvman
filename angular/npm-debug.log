@@ -1,0 +1,182 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.10.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install' ]
+2 info using npm@1.2.14
+3 info using node@v0.10.0
+4 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/package.json
+5 warn package.json angular@0.0.0 No README.md file found!
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ '/Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular',
+7 verbose install   [ 'font-awesome',
+7 verbose install     'grunt',
+7 verbose install     'grunt-contrib-copy',
+7 verbose install     'grunt-contrib-concat',
+7 verbose install     'grunt-contrib-coffee',
+7 verbose install     'grunt-contrib-uglify',
+7 verbose install     'grunt-contrib-compass',
+7 verbose install     'grunt-contrib-jshint',
+7 verbose install     'grunt-contrib-cssmin',
+7 verbose install     'grunt-contrib-connect',
+7 verbose install     'grunt-contrib-clean',
+7 verbose install     'grunt-contrib-htmlmin',
+7 verbose install     'grunt-contrib-imagemin',
+7 verbose install     'grunt-contrib-watch',
+7 verbose install     'grunt-usemin',
+7 verbose install     'grunt-svgmin',
+7 verbose install     'grunt-rev',
+7 verbose install     'grunt-karma',
+7 verbose install     'grunt-open',
+7 verbose install     'grunt-concurrent',
+7 verbose install     'matchdep',
+7 verbose install     'connect-livereload',
+7 verbose install     'grunt-google-cdn',
+7 verbose install     'grunt-ngmin',
+7 verbose install     'grunt-connect-proxy' ] ]
+8 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/package.json
+9 info preinstall angular@0.0.0
+10 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/connect-livereload/package.json
+11 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt/package.json
+12 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-concurrent/package.json
+13 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-connect-proxy/package.json
+14 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-clean/package.json
+15 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-coffee/package.json
+16 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-compass/package.json
+17 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-concat/package.json
+18 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-connect/package.json
+19 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-copy/package.json
+20 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-cssmin/package.json
+21 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-htmlmin/package.json
+22 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-imagemin/package.json
+23 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-jshint/package.json
+24 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-uglify/package.json
+25 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-watch/package.json
+26 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-google-cdn/package.json
+27 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-karma/package.json
+28 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-ngmin/package.json
+29 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-open/package.json
+30 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-rev/package.json
+31 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-svgmin/package.json
+32 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-usemin/package.json
+33 verbose read json /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/matchdep/package.json
+34 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/package.json
+35 verbose readDependencies using package.json deps
+36 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/connect-livereload/package.json
+37 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt/package.json
+38 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-concurrent/package.json
+39 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-connect-proxy/package.json
+40 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-clean/package.json
+41 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-coffee/package.json
+42 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-compass/package.json
+43 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-concat/package.json
+44 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-connect/package.json
+45 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-copy/package.json
+46 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-cssmin/package.json
+47 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-htmlmin/package.json
+48 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-imagemin/package.json
+49 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-jshint/package.json
+50 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-uglify/package.json
+51 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-contrib-watch/package.json
+52 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-google-cdn/package.json
+53 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-karma/package.json
+54 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-ngmin/package.json
+55 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-open/package.json
+56 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-rev/package.json
+57 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-svgmin/package.json
+58 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/grunt-usemin/package.json
+59 verbose from cache /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular/node_modules/matchdep/package.json
+60 verbose already installed skipping grunt-contrib-copy@~0.4.1 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+61 verbose already installed skipping grunt-contrib-concat@~0.3.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+62 verbose already installed skipping grunt-contrib-coffee@~0.7.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+63 verbose already installed skipping grunt-contrib-uglify@~0.2.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+64 verbose already installed skipping grunt-contrib-compass@~0.3.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+65 verbose already installed skipping grunt-contrib-jshint@~0.6.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+66 verbose already installed skipping grunt-contrib-cssmin@~0.6.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+67 verbose already installed skipping grunt-contrib-connect@~0.3.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+68 verbose already installed skipping grunt-contrib-clean@~0.4.1 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+69 verbose already installed skipping grunt-contrib-htmlmin@~0.1.3 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+70 verbose already installed skipping grunt-contrib-imagemin@~0.1.4 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+71 verbose already installed skipping grunt-contrib-watch@~0.4.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+72 verbose already installed skipping grunt-svgmin@~0.2.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+73 verbose already installed skipping grunt-rev@~0.1.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+74 verbose already installed skipping grunt-usemin@~0.1.11 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+75 verbose already installed skipping grunt-concurrent@~0.3.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+76 verbose already installed skipping grunt-karma@~0.4.3 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+77 verbose already installed skipping matchdep@~0.1.2 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+78 verbose already installed skipping grunt-open@~0.2.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+79 verbose already installed skipping connect-livereload@~0.2.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+80 verbose already installed skipping grunt-connect-proxy@~0.1.5 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+81 verbose already installed skipping grunt-google-cdn@~0.2.0 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+82 verbose already installed skipping grunt-ngmin@~0.0.2 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+83 verbose cache add [ 'font-awesome@~4.0.3', null ]
+84 verbose cache add name=undefined spec="font-awesome@~4.0.3" args=["font-awesome@~4.0.3",null]
+85 verbose parsed url { protocol: null,
+85 verbose parsed url   slashes: null,
+85 verbose parsed url   auth: null,
+85 verbose parsed url   host: null,
+85 verbose parsed url   port: null,
+85 verbose parsed url   hostname: null,
+85 verbose parsed url   hash: null,
+85 verbose parsed url   search: null,
+85 verbose parsed url   query: null,
+85 verbose parsed url   pathname: 'font-awesome@~4.0.3',
+85 verbose parsed url   path: 'font-awesome@~4.0.3',
+85 verbose parsed url   href: 'font-awesome@~4.0.3' }
+86 verbose cache add name="font-awesome" spec="~4.0.3" args=["font-awesome","~4.0.3"]
+87 verbose parsed url { protocol: null,
+87 verbose parsed url   slashes: null,
+87 verbose parsed url   auth: null,
+87 verbose parsed url   host: null,
+87 verbose parsed url   port: null,
+87 verbose parsed url   hostname: null,
+87 verbose parsed url   hash: null,
+87 verbose parsed url   search: null,
+87 verbose parsed url   query: null,
+87 verbose parsed url   pathname: '~4.0.3',
+87 verbose parsed url   path: '~4.0.3',
+87 verbose parsed url   href: '~4.0.3' }
+88 verbose addNamed [ 'font-awesome', '~4.0.3' ]
+89 verbose addNamed [ null, '>=4.0.3- <4.1.0-' ]
+90 verbose already installed skipping grunt@~0.4.1 /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+91 silly lockFile 715d2b57-font-awesome-4-0-3 font-awesome@~4.0.3
+92 verbose lock font-awesome@~4.0.3 /Users/cfernand/.npm/715d2b57-font-awesome-4-0-3.lock
+93 silly addNameRange { name: 'font-awesome',
+93 silly addNameRange   range: '>=4.0.3- <4.1.0-',
+93 silly addNameRange   hasData: false }
+94 verbose url raw font-awesome
+95 verbose url resolving [ 'https://registry.npmjs.org/', './font-awesome' ]
+96 verbose url resolved https://registry.npmjs.org/font-awesome
+97 info trying registry request attempt 1 at 18:08:30
+98 verbose etag "6EX25N7VSY93DLR3EQMZ5LQ30"
+99 http GET https://registry.npmjs.org/font-awesome
+100 http 304 https://registry.npmjs.org/font-awesome
+101 silly registry.get cb [ 304,
+101 silly registry.get   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+101 silly registry.get     etag: '"6EX25N7VSY93DLR3EQMZ5LQ30"',
+101 silly registry.get     date: 'Mon, 25 Nov 2013 02:08:30 GMT',
+101 silly registry.get     'content-length': '0' } ]
+102 verbose etag font-awesome from cache
+103 silly addNameRange number 2 { name: 'font-awesome',
+103 silly addNameRange   range: '>=4.0.3- <4.1.0-',
+103 silly addNameRange   hasData: true }
+104 silly addNameRange versions [ 'font-awesome', [ '3.2.1' ] ]
+105 silly lockFile 715d2b57-font-awesome-4-0-3 font-awesome@~4.0.3
+106 silly lockFile 715d2b57-font-awesome-4-0-3 font-awesome@~4.0.3
+107 error Error: No compatible version found: font-awesome@'>=4.0.3- <4.1.0-'
+107 error Valid install targets:
+107 error ["3.2.1"]
+107 error     at installTargetsError (/usr/local/Cellar/node/0.10.0/lib/node_modules/npm/lib/cache.js:682:10)
+107 error     at next (/usr/local/Cellar/node/0.10.0/lib/node_modules/npm/lib/cache.js:661:17)
+107 error     at /usr/local/Cellar/node/0.10.0/lib/node_modules/npm/lib/cache.js:641:5
+107 error     at saved (/usr/local/Cellar/node/0.10.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/get.js:138:7)
+107 error     at Object.oncomplete (fs.js:93:15)
+108 error If you need help, you may report this log at:
+108 error     <http://github.com/isaacs/npm/issues>
+108 error or email it to:
+108 error     <npm-@googlegroups.com>
+109 error System Darwin 12.4.0
+110 error command "/usr/local/Cellar/node/0.10.0/bin/node" "/usr/local/bin/npm" "install"
+111 error cwd /Users/cfernand/Dropbox/CSFiles/humanTesting/human/angular
+112 error node -v v0.10.0
+113 error npm -v 1.2.14
+114 verbose exit [ 1, true ]

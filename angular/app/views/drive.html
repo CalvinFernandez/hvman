@@ -1,6 +1,12 @@
 <div class='hv-spinner' operation='getList' what='drive' spinner 
-  spinner-active='.drive-button'
+  spinner-active='.drive-button' 
   spinner-error='.drive-load-error'>
+</div>
+
+<div class='hv-spinner' operation='remove' what='posts' spinner
+  spinner-active='.hv-spinner-active'
+  spinner-success='.publish-success'
+  spinner-error='.publish-error'>
 </div>
 
 <div class="container no-padding col-fixed-sidebar">
@@ -16,13 +22,11 @@
           <small> Unable to load posts! </small> 
         </div>
       </div>
-
-
       <div class='col-md-3 col-md-offset-5'>
         <a href='/#/compose' class='hv-button hv-button-primary'>
           Compose
         </a>
-        <button ng-show='selected' ng-click='deletePosts()' type='button' class='hv-button hv-button-default'>
+        <button ng-show='selected' click-tag='.hv-modal' type='button' class='hv-button hv-button-default'>
           <span class='glyphicon glyphicon-trash'></span>      
         </button>
       </div>
@@ -33,6 +37,7 @@
           <th></th>
           <th> Title </th>
           <th> Last Edited </th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -40,18 +45,48 @@
           <td><input type='checkbox' ng-checked='rowSelected'></td>
           <td class='title'> <a href='/#/posts/{{post.id}}/edit'> {{post.title}}</a></td>
           <td> {{post.updated_at}} </td>
+          <td> <a class='no-style' href='/#/posts/{{post.id}}'><span class='glyphicon glyphicon-link'></span></a></td>
         </tr>
       </tbody>
     </table>
     <div class='col-md-3 margin-bottom'>
       
-      <button ng-show='page > 0' ng-click='back()' type='button' class='btn btn-primary hv-btn'>
+      <button ng-show='page > 0' ng-click='back()' type='button' class='hv-button hv-button-primary'>
         &larr;
       </button>
       
-      <button ng-show='posts' ng-click='next()' type='button' class='btn btn-primary hv-btn'>
+      <button ng-show='posts' ng-click='next()' type='button' class='hv-button hv-button-primary'>
         &rarr;
       </button>
+    </div>
+  </div>
+</div>
+
+<div class='hv-modal'>
+  <div click-tag='.hv-modal' class='hv-modal-close'>
+    <span class='glyphicon glyphicon-remove'></span>
+  </div>
+  <div class='container'>
+    <div class='row indent'>  
+      <div class='pull-left title-container'>
+        <h3> Delete?</h3>
+      </div>
+    </div>
+    <div class='row margin-top indent'>
+      <h5> Are you sure you want to delete these posts? </h5>
+    </div>
+    <div class='row margin-top indent'>
+      <button ng-click='deletePosts()' type='button' class='hv-button hv-button-success delete-button'><span ng-show='selected'>Delete</span><span ng-show='!selected'>Deleted!</span></button>
+      <button click-tag='.hv-modal' type='button' class='hv-button hv-button-default'> Cancel</button> 
+      <div class='hv-spinner-active'>
+      </div>
+      <div class='hv-spinner hv-spinner-success publish-success'>
+        <span class='glyphicon glyphicon-ok'></span>
+      </div>
+
+      <div class='hv-spinner hv-spinner-error publish-error'>
+        <span class='glyphicon glyphicon-remove'></span>
+      </div>
     </div>
   </div>
 </div>

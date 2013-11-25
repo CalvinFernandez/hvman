@@ -70,4 +70,11 @@ angular.module('angularApp')
       $scope.save = function(data) {
         $scope.post.content = data;
       }
+  })
+  .controller('PostsshowCtrl', 
+      function($scope, $routeParams, Restangular, $location, $http) {
+        Restangular.one('posts', $routeParams.id).get().then(function(post) {
+          delete post["post_image"]; // Remove post image for now paperclip is fucking up//
+          $scope.post = post;
+        });
   });

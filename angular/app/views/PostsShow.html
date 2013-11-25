@@ -1,59 +1,52 @@
+<div class='hv-squares-menu'>
+  <div class='hv-squares'>
+    <div class='hv-square hv-square-1'></div>
+    <div class='hv-square hv-square-2'></div>
+    <div class='hv-square hv-square-3'></div>
+    <div class='hv-square hv-square-4'></div>
+  </div>
+  <div class='hv-squares-options'>
+    <div class='hv-square-option hv-square-option-1'>
+      <a class='no-style' href='/#/compose'>
+        <span class='glyphicon glyphicon-pencil'></span>
+      </a>
+    </div>
+    <div class='hv-square-option hv-square-option-2'>
+    </div>
+    <div class='hv-square-option hv-square-option-3'></div>
+    <div class='hv-square-option hv-square-option-4'>
+      <a class='no-style' href='/#/drive'>
+        <span class='glyphicon glyphicon-hdd'></span>
+      </a>
+    </div>
+  </div>
+</div>
+
 <div class="container col-fixed-sidebar">
-  <div ng-show="post.delete_url" class="row">
-    <div class="edit span1 offset11">
-      <span class="fui-cross" ng-click="deletePost()"></span>
-    </div>
+  <div class='hv-hover-back top'>
+    <h4><a href='/#/'>HVMAN</a></h4>
   </div>
-  <div class="span2 border-right">        
-    <div class="row-fluid">
-      <img src="images/hvman-logo.svg" class="logo-medium">
-    </div>
-    <hr>
-  </div>
-  <div class="span10">
-    <div class="row-fluid">
-      <span ng-repeat="tag in post.tags" class="label large success">
-        <a class="no-color" href="/#/{{tag}}"> 
-          {{tag}}
-        </a>
-      </span>
-    </div>
-    <div class="row-fluid">
-      <div class="span9">
-        <h1 class="inline">{{post.title}}</h1>
-        <div ng-show="editTitle">  
-          <input ng-model="post.title" type="text" value="post.title">
-          <a href="" class="btn btn-large btn-primary pull-right" ng-click="update()"> Update </a>
-        </div> 
-      </div>
-      <div ng-show="post.edit_url" class="span1" >
-        <span class="fui-new edit" ng-click="editTitle = !editTitle"></span>
-      </div>
-    </div>
-    <hr>
-    <div class="row-fluid">
-      <div ng-show="post.edit_url" class="span1 offset11"> 
-        <span class="fui-new edit" ng-click="editContent = !editContent"></span>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div ng-show="editContent">
-        <textarea style="width: 1000px; height: 1000px;" ui-tinymce ng-model="post.content" value="post.content"></textarea>
-        <a href="" class="btn btn-large btn-primary pull-right" ng-click="update()"> Update </a>
-      </div>
-      <p ng-bind-html-unsafe="post.content"></p>
-    </div>
-    <hr>
-    <div class="row-fluid">
-      <textarea ng-model="newComment" class="comment-box"></textarea>
-      <button ng-click="addComment()" class="btn btn-success pull-right">Comment</button>
-    </div>
-    <div class="row-fluid">
-      <ul>
-        <li class="border-bottom" ng-repeat="comment in post.comments">
-          {{comment.content}}
+  <div class='hv-post'>
+    <div class='hv-post-title-container'>
+      
+      <h1 class='hv-post-title' > {{post.title}} </h1>
+      <ul class="hv-post-topics" >        
+        <li ng-repeat="topic in post.topics">
+          <a href='#/topics/{{topic.title}}'>
+            {{topic.title}}
+          </a>
         </li>
       </ul>
     </div>
+    <p class='hv-post-body' ng-bind-html-unsafe="post.content"></p>
+    <ul class="hv-post-topics"> 
+      <li ng-repeat="topic in post.topics">
+      <a href='#/topics/{{topic.title}}'>
+        {{topic.title}}</li>
+      </a>
+    </ul>
+  </div>
+  <div class='hv-hover-back bottom'>
+    <h4><a href='/#/'>HVMAN</a></h4>
   </div>
 </div>

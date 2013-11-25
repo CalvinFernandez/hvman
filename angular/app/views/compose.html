@@ -8,6 +8,15 @@
       <div ng-click='editPost = true' ng-show='!editPost' class='post-title'>
         <h3 class='no-margin'> {{post.title}}  </h3>
       </div>
+
+      <a class='no-style' href='/#/posts/{{post.id}}'>
+        <span class='glyphicon glyphicon-link'></span>
+      </a>
+      
+      <div ng-show='!userLoggedIn'>
+        <h4 class='text-primary'> You are not logged in! Any changes you make will not be saved!</h4>
+      </div>
+
       <div ng-show='editPost' class='edit-post-title'>
         <input type='text' ng-model='post.title'>
         <span ng-click='editPost = false' class='glyphicon glyphicon-ok save-post-title'> 
@@ -37,7 +46,7 @@
     </div>
     <div spinner-success>
     </div>
-    <div 'hv-spinner-error' spinner-error>
+    <div class='hv-spinner-error' spinner-error>
       <h6> An error occured while loading! </h6>
     </div>
   </div>
@@ -80,7 +89,7 @@
                   </span>
                 </div>
                 <ul class='list-group'>
-                  <li ng-click='addToTopics(topic)' class='list-group-item' ng-repeat='topic in topics'>
+                  <li ng-click='addToTopics(topic); clearResults()' class='list-group-item' ng-repeat='topic in topics'>
                     {{topic.title}}
                   </li>
                 </ul>
@@ -95,16 +104,22 @@
           <button ng-show='post.topics.length' ng-click='unpublish()' type='button' class='hv-button hv-button-primary'>Unpublish</button>
           <button ng-click='cancel()' click-tag='.hv-modal' type='button' class='hv-button hv-button-default'>Cancel</button>
 
+
           <div class='hv-spinner-active'>
           </div>
 
           <div class='hv-spinner hv-spinner-success publish-success'>
             <span class='glyphicon glyphicon-ok'></span>
+            
           </div>
 
           <div class='hv-spinner hv-spinner-error publish-error'>
             <span class='glyphicon glyphicon-remove'></span>
           </div>
+
+          <a class='no-style' href='/#/posts/{{post.id}}'>
+            <span class='glyphicon glyphicon-link'></span>
+          </a>
 
           <div class='hv-spinner' operation='put post' what='posts' spinner
             spinner-active='.hv-spinner-active'

@@ -30,19 +30,32 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <div class='hv-spinner' operation='getList' what='topics' spinner
+      spinner-active='.hv-spinner-active'
+      spinner-error='.load-error'>
+    </div>
+
     <div class='sidebar-group'>
       <div class='sidebar-nav-fixed border-right'>
-         <a href='/#/'><h1 class='vertical'>h v m a n </h1></a> 
-          <span class='more glyphicon glyphicon-chevron-right vertical-center'></span>
+        <h1 class='vertical sidebar-logo'>
+          <a class='no-style' href='/#/'> h v m a n </a>
+        </h1> 
       </div>
       <div class='flip-container'>
         <div class='flipper'>
           <div class='secondary-sidebar-nav-fixed front inner-shadow'>
             <ul class='navfix no-padding'>
+              <li class='dark-bottom indent'> 
+                <h1>
+                  <a href='/#/' class='text-inverse indent margin-bottom'>
+                    HVMAN 
+                  </a>
+                </h1>  
+              </li>
               <li click-tag='.flip-container' class='light-top dark-bottom indent'>
                 <h3>
                 <span class="glyphicon glyphicon-search"></span>
-                  <a href='' class='text-inverse'>Explore</a>
+                  <a href='' class='text-inverse'>Topics</a>
                 </h3>
               </li>
               <li class='light-top dark-bottom indent'> 
@@ -62,12 +75,15 @@
           </div>
           <div ng-controller='TopicsCtrl' class='back inner-shadow'>
             <span click-tag='.flip-container' class='pointer margin-top col-sm-2 col-sm-offset-9 glyphicon glyphicon-remove'></span>
+
             <div class='padding-navfix'>
               <div class='site-nav-search'>
+
                 <form ng-submit='search()'>
                   <input ng-model='query' class='site-nav-search-input' type='text' placeholder='Explore Hvman'>
                 </form>
               </div>
+              
               <ul class='no-padding'>
                 <li class='indent' ng-repeat='topic in topics'>
                   <h4 class='inline'>
@@ -75,35 +91,22 @@
                   </h4> 
                 </li>
               </ul>
+              <div class='hv-spinner center'>
+                <div class='hv-spinner-active center green-sidebar-gif'>
+                </div>
+                <div class='hv-spinner hv-spinner-error center load-error'>
+                  <h4 class='text-inverse'> Error </h4>  
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>  
     <div ng-view=""></div>
-
-    <div class='toolkit-wrapper'>
-      <div class='toolkit-container'>
-        <div class='tools navfix'>
-          <ul class='no-padding'>
-            <li class='indent'>
-              <a href='/#/compose'>
-                <h1>
-                  <span class='glyphicon glyphicon-pencil'></span>
-                </h1>
-              </a>
-            </li>
-            <li class='indent'>
-              <a href='/#/drive'>
-                <h1>
-                  <span class='glyphicon glyphicon-hdd'></span>
-                </h1>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class='toolkit-hint'>
+    
+    <div class='scroll-wrapper'>
+      <div class='scroll-hint' scrolled-tag scroll-top>
         <span class='glyphicon glyphicon-arrow-up'></span>
       </div>
     </div>
@@ -153,13 +156,14 @@
         <script src="scripts/services/Session.js"></script>
         <script src="scripts/directives/click-tag.js"></script>
         <script src="scripts/directives/appear-tag.js"></script>
+        <script src="scripts/directives/scrolled-tag.js"></script>
+        <script src="scripts/directives/scroll-top.js"></script>
         <script src="scripts/directives/redactor.js"></script>
 
         <script src="scripts/http-auth-interceptor.js"></script>
         <script src="scripts/interceptor.js"></script>
         <script src='scripts/modules/angular-assert.js'></script>
         <script src='scripts/modules/restangular-spinner.js'></script>
-
 
         <!-- endbuild -->
 </body>

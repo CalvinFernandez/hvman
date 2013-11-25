@@ -18,9 +18,8 @@ class PostsController < ApplicationController
     if @post.valid?
 
       @post.save
-      @post.update_topics(params[:post])
-
-      render :json => @post
+      @post.update_topics(params)
+      @post
     else
       render :json => {}, :status => 500
     end
@@ -40,7 +39,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by_id(params[:id])
     if @post
       @post.update_attributes(params)
-      render :json => @post
+      @post
     else
       render :json => {}, :status => 400
     end

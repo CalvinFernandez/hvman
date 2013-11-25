@@ -1,3 +1,32 @@
+<div class='hv-spinner' operation='getList' what='posts' spinner
+  spinner-active='.hv-spinner-active'
+  spinner-error='.load-error'>
+</div>
+
+<div class='hv-squares-menu'>
+  <div class='hv-squares'>
+    <div class='hv-square hv-square-1'></div>
+    <div class='hv-square hv-square-2'></div>
+    <div class='hv-square hv-square-3'></div>
+    <div class='hv-square hv-square-4'></div>
+  </div>
+  <div class='hv-squares-options'>
+    <div class='hv-square-option hv-square-option-1'>
+      <a class='no-style' href='/#/compose'>
+        <span class='glyphicon glyphicon-pencil'></span>
+      </a>
+    </div>
+    <div class='hv-square-option hv-square-option-2'>
+    </div>
+    <div class='hv-square-option hv-square-option-3'></div>
+    <div class='hv-square-option hv-square-option-4'>
+      <a class='no-style' href='/#/drive'>
+        <span class='glyphicon glyphicon-hdd'></span>
+      </a>
+    </div>
+  </div>
+</div>
+
 <div class="container col-fixed-sidebar">
   <div class='row indent'>
     <div class='pull-left title-container'>
@@ -5,7 +34,7 @@
       <h3 class='text-muted pull-right'> Humanity, Defined</h3>
     </div>
   </div>
-    <hr>
+  <hr>
   <div class="row">
     <div infinite-scroll='nextPage()' infinite-scroll-disabled='busy' infinite-scroll-distance='1' class="col-md-12 infinite">
       <div class="post-glimpse" ng-repeat="post in posts">
@@ -15,10 +44,7 @@
           <div class="col-md-11">
             <div class="row">
               <div class="col-md-9">
-                <a ng-hide="post.link" ng-href="/#/posts/{{post.id}}">
-                  <h1> {{post.title}} </h1><br>
-                </a>
-                <a ng-show="post.link" ng-href="{{post.link}}">
+                <a ng-href="/#/posts/{{post.id}}">
                   <h1> {{post.title}} </h1><br>
                 </a>
               </div>
@@ -27,18 +53,15 @@
               <div class="col-md-9">
                 <p ng-hide="more" ng-bind-html-unsafe='chomp(post.content)' class='lead'> 
                 </p>
-                <p ng-show="more" ng-bind-html-unsafe='post.content'> 
+                <p ng-show="more" class='lead' ng-bind-html-unsafe='post.content'> 
                 </p>
 
-                (<a href="" ng-hide="more" ng-click="more = !more"> more </a>
-                <a href="" ng-show="more" ng-click="more = !more"> less </a>)
+                (<a href="" ng-hide="more" ng-click="more = !more">more</a><a href="" ng-show="more" ng-click="more = !more">less</a>)
 
                 <a href="" ng-hide="post.voted_for" ng-click="voteUp(post)"> &#9650;</a>
                 <a href="" class="selected" ng-show="post.voted_for" ng-click="voteUp(post)"> &#9650;</a>
                 <a href="" ng-hide="post.voted_against" ng-click="voteDown(post)"> &#9660;</a>
                 <a href="" class="selected" ng-show="post.voted_against" ng-click="voteDown(post)"> &#9660;</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                <a ng-href="/#/posts/{{post.id}}">Comments</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="">Share</a>
               </div>
             </div>
           </div>
@@ -46,4 +69,13 @@
       </div>
     </div>
   </div>
+
+  <div class='hv-spinner center'>
+    <div class='hv-spinner-active center gif'>
+    </div>
+    <div class='hv-spinner hv-spinner-error center load-error'>
+      <h4> Error </h4>  
+    </div>
+  </div>
+
 </div>

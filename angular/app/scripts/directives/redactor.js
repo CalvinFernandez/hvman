@@ -41,7 +41,13 @@ angular.module('angularApp').
             }  
           });
 
-          $scope.redactor.setCode(content);
+          if (content) {
+            /*
+             * Redactor has it's own content that it will use to fill in
+             * if the current content is blank.
+             */
+            $scope.redactor.setCode(content);
+          }
         });
       }
     }
