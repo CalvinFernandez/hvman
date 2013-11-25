@@ -14,13 +14,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(params[:post])
+    @post = current_user.posts.new(Post.sanitize(params[:post]))
     if @post.valid?
-      if params[:tags] 
-        @post.tag_list.add(params[:tags])    
-      end
+
       @post.save
-      render :json => @post
+      @post.update_topics(params)
+      @post
     else
       render :json => {}, :status => 500
     end
@@ -40,7 +39,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find_by_id(params[:id])
     if @post
       @post.update_attributes(params)
-      render :json => @post
+      @post
     else
       render :json => {}, :status => 400
     end

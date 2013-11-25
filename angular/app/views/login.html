@@ -4,9 +4,16 @@
       <h1> Login </h1>
       <hr>
       <form>
-        <input type='text' ng-model='email' placeholder='Email'><br>
-        <input type='password' ng-model='password' placeholder='Password'><br><br>
-        <button ng-click='submit()' type="submit" class="btn btn-primary">Submit</button>
+        <div>
+          <div class='site-nav-search'>
+            <input class='site-nav-search-input' type='text' ng-model='email' placeholder='Email'>
+          </div>
+          <div class='site-nav-search'>
+            <input class='site-nav-search-input' type='password' ng-model='password' placeholder='Password'>
+          </div>
+        </div>
+        <br>
+        <button ng-click='submit()' type="submit" class="hv-button hv-button-primary">Submit</button>
       </form>
       <assert></assert> 
     </div>

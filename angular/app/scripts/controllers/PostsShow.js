@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 angular.module('angularApp')
   .controller('PostsshowCtrl', 
       function($scope, $routeParams, Restangular, $location, $http) {
@@ -49,3 +50,4 @@ angular.module('angularApp')
         }
       }
     );
+    */

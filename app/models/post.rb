@@ -13,10 +13,8 @@ class Post < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :user_id, :presence => true
-  #validates :board_id, :presence => true
 
-  validates :content, :presence => true,
-                      :length => { :minimum => 10 }
+  validates :content, :presence => true
 
   validates_associated :comments
 
@@ -33,24 +31,35 @@ class Post < ActiveRecord::Base
     Post.page(options[:page]).per(options[:per_page])             
   end
 
-  def update_attributes(attributes)
-
+  def self.sanitize(model)
+    sanitized = {} 
+    Post.attr_accessible[:default].each do |attr| 
+      sanitized[attr] = model[attr] if model[attr]
+    end
+    sanitized
+  end
+  
+  def self.build_topics(model)
     topics = []
-
-    if attributes[:topics]  
-      attributes[:topics].each do |t| 
+    if model[:topics]
+      model[:topics].each do |t|      
         topic = Topic.find_by_id(t[:id])
         topics << topic if topic
       end
     end
+    topics
+  end
 
-    sanitized = {} 
-    Post.attr_accessible[:default].each do |attr| 
-      sanitized[attr] = attributes[attr] if attributes[attr]
-    end
-    
+  def update_topics(topics)
+    topics = Post.build_topics(topics)  
+    update_attribute('topics', topics)  
+  end
+
+  def update_attributes(attributes)
+    topics = Post.build_topics(attributes) 
+    sanitized = Post.sanitize(attributes)
+
     update_attribute('topics', topics)
     super(sanitized) 
   end
-
 end
