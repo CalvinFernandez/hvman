@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <redactor content='post.content'></redactor>
+  <div redactor content='post.content'></div>
 
   <div class='hv-modal'>
     <div click-tag='.hv-modal' class='hv-modal-close'>
@@ -83,7 +83,7 @@
                   <span ng-click='search()' class='input-group-addon input-group-addon-left'>
                     <span class='glyphicon glyphicon-search'></span>
                   </span>
-                  <input ng-model='query' class='form-control' type='text'>
+                  <input stop-propagation ng-model='query' class='form-control' type='text'>
                   <span ng-show='query' ng-click='clearResults()' class='input-group-addon input-group-addon-right'>
                     <span class='glyphicon glyphicon-remove'></span>
                   </span>

@@ -3,7 +3,7 @@ angular.module('angularApp').
 
     return {
       template: '<textarea id="redactor_content"></textarea>',
-      restrict: 'E',
+      restrict: 'A',
       scope: true,
 
       link: function($scope, $element, $attrs) {
@@ -28,17 +28,16 @@ angular.module('angularApp').
           var content = $scope.$eval($attrs.content) || "";
           var contentSetter = $parse($attrs.content);
           contentSetter($scope);
-
+          
           $element.on('click keyup', function(event) {
             var content = $scope.redactor.getCode();
             contentSetter.assign($scope, content); 
           });
           
-
           $scope.$watch($attrs.content, function(newValue, oldValue) {
             if (newValue !== oldValue) {
-              $scope.redactor.setCode(newValue);
-            }  
+              $scope.redactor.setCode(newValue, false);
+            }
           });
 
           if (content) {
