@@ -12,6 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css({.tmp,app}) styles/main.css -->
+        <link href='http://fonts.googleapis.com/css?family=News+Cycle' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="styles/main.css">
         <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css'>
         <link rel='stylesheet' href='styles/bootstrap.css'>
@@ -133,7 +134,9 @@
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="lib/redactor/redactor.min.js"></script>
+        <!--<script src="lib/redactor/redactor.min.js"></script>-->
+        <script src="lib/redactor/redactor.js"></script>
+
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -159,6 +162,7 @@
         <script src="scripts/directives/scrolled-tag.js"></script>
         <script src="scripts/directives/scroll-top.js"></script>
         <script src="scripts/directives/redactor.js"></script>
+        <script src="scripts/directives/stop-propagation.js"></script>
 
         <script src="scripts/http-auth-interceptor.js"></script>
         <script src="scripts/interceptor.js"></script>

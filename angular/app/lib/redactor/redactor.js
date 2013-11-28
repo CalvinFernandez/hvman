@@ -1169,10 +1169,18 @@ var RLANG = {
 		},
 
 		// API functions
-		setCode: function(html)
+		setCode: function(html, focus)
 		{
+      if (typeof(focus) === 'undefined') {
+        focus = true;
+      }
+
 			html = this.stripTags(html);
-			this.$editor.html(html).focus();
+      var e = this.$editor.html(html);
+
+      if (focus === true) {
+        e.focus();
+      }
 
 			this.syncCode();
 		},
@@ -3974,9 +3982,9 @@ var RLANG = {
 		return this.data('redactor').getSelectedHtml();
 	};
 
-	$.fn.setCode = function(html)
+	$.fn.setCode = function(html, focus)
 	{
-		this.data('redactor').setCode(html);
+		this.data('redactor').setCode(html, focus);
 	};
 
 	$.fn.insertHtml = function(html)
