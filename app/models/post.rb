@@ -26,7 +26,11 @@ class Post < ActiveRecord::Base
   end
 
   def self.paginated(options = {}) 
-    options[:published] ||= true 
+
+    if options[:published].nil?
+      options[:published] = true
+    end
+
     options[:page] ||= 1
     options[:per_page] ||= 10
 
