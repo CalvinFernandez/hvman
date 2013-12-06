@@ -3,7 +3,7 @@ class DriveController < ApplicationController
 
   def index
     params[:page] ||= 1
-    render :json => current_user.posts.paginated(:page => params[:page])
+    render :json => current_user.posts.paginated(:page => params[:page], :published => false)
   end
 
 end

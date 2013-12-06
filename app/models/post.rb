@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   attr_accessible :title, :content,
                   :user_id, :verified,
-                  :flag, :link
+                  :flag, :link, :published
 
   has_attached_file :post_image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   
@@ -26,15 +26,22 @@ class Post < ActiveRecord::Base
   end
 
   def self.paginated(options = {}) 
+    options[:published] ||= true 
     options[:page] ||= 1
     options[:per_page] ||= 10
-    Post.page(options[:page]).per(options[:per_page])             
+
+    if options[:published] == true
+      Post.where(published: true).page(options[:page]).per(options[:per_page])             
+    else
+      Post.page(options[:page]).per(options[:per_page])
+    end
+
   end
 
   def self.sanitize(model)
     sanitized = {} 
     Post.attr_accessible[:default].each do |attr| 
-      sanitized[attr] = model[attr] if model[attr]
+      sanitized[attr] = model[attr] unless model[attr].nil?
     end
     sanitized
   end
@@ -57,7 +64,7 @@ class Post < ActiveRecord::Base
 
   def update_attributes(attributes)
     topics = Post.build_topics(attributes) 
-    sanitized = Post.sanitize(attributes)
+    sanitized = Post.sanitize(attributes[:post])
 
     update_attribute('topics', topics)
     super(sanitized) 

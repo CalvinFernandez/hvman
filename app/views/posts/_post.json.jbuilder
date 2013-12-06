@@ -1,4 +1,4 @@
-json.(post, :id, :title, :content, :user_id, :post_image, :flag, :link, :verified)
+json.(post, :id, :title, :content, :user_id, :post_image, :flag, :link, :verified, :published)
 if user_signed_in?
   if post.user_id == current_user.id
     json.edit_url 'posts/#{post.id}'
