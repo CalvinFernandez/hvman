@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131107031241) do
+ActiveRecord::Schema.define(:version => 20131206173627) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20131107031241) do
     t.integer  "flag",                    :default => 0
     t.string   "title"
     t.text     "link"
+    t.boolean  "published",               :default => false
   end
 
   create_table "posts_topics", :id => false, :force => true do |t|

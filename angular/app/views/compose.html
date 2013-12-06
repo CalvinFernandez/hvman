@@ -36,8 +36,8 @@
     </div>
 
     <div class='publish-container'>
-      <button ng-show='post.topics.length' click-tag='.hv-modal' type='button' class='hv-button hv-button-success'>Published</button>
-      <button ng-show='!post.topics.length' click-tag='.hv-modal' type='button' class='hv-button  hv-button-primary'>Publish</button>
+      <button ng-show='post.published' click-tag='.hv-modal' type='button' class='hv-button hv-button-success'>Published</button>
+      <button ng-show='!post.published' click-tag='.hv-modal' type='button' class='hv-button  hv-button-primary'>Publish</button>
     </div>
   </div>
 
@@ -100,8 +100,8 @@
       </div>
       <div class='row indent'>
         <div class='publish-button-container'>
-          <button ng-show='!post.topics.length' ng-click='publish()' type='button' class='hv-button hv-button-success'>Publish</button>
-          <button ng-show='post.topics.length' ng-click='unpublish()' type='button' class='hv-button hv-button-primary'>Unpublish</button>
+          <button ng-show='!post.published' ng-click='publish()' type='button' class='hv-button hv-button-success'>Publish</button>
+          <button ng-show='post.published' ng-click='unpublish()' type='button' class='hv-button hv-button-primary'>Unpublish</button>
           <button ng-click='cancel()' click-tag='.hv-modal' type='button' class='hv-button hv-button-default'>Cancel</button>
 
 

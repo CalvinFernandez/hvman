@@ -64,13 +64,18 @@ angular.module('angularApp')
     }
 
     $scope.publish = function() {
+
       $scope.post.topics = copy($scope.dirty_topics);  
+      $scope.post.published = true;
+
       $scope.save();
     }
 
     $scope.unpublish = function() {
       $scope.dirty_topics = [];
       $scope.post.topics = [];
+      $scope.post.published = false;
+
       $scope.save();
     }
    
