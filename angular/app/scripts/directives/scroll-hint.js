@@ -52,10 +52,26 @@ angular.module('angularApp').directive('scrollHint', function() {
       var dragLock = false;
 
       var $container = $(".hv-position-hint");
+      var $content = $(".hv-position-content");
       var $mask = $(".hv-position-mask");
 
       var $window = $(window);
       var lastClientY = 0;
+
+      $content
+        .on('click', function(event) {
+          var position = event.clientY - $container.position().top;
+
+          var documentHeight = $(document).height();
+          var height = $content.height();
+
+          var top = -$content.position().top;       
+          var newMaskTop = top + 1 + position; //+1 to fix weird offset thing
+
+          var ratio = height / documentHeight;  
+          $("html, body").animate({scrollTop: (newMaskTop / ratio)}, "slow");
+
+        });
 
       $window
         .on('mousedown', function(event) {
@@ -82,15 +98,21 @@ angular.module('angularApp').directive('scrollHint', function() {
 
               var documentHeight = $(document).height();
 
-              var height = $container.height();
-              var top    = $container.position().top;
+              var height = $content.height();
+              var top    = $content.position().top;
                
               var maskTop = $mask.position().top;
-              var newMaskTop = maskTop + diff;
+              var newMaskTop = maskTop + diff - top + 1; //+1 to fix weird offset thing
 
               newMaskTop = newMaskTop < 0 ? 0 : newMaskTop;
               newMaskTop = newMaskTop > height ? height : newMaskTop;
-              $mask.css("top", newMaskTop + 'px')
+              $mask.css("top", newMaskTop + 'px');
+
+              /* if you can grab it then it's obviously 
+               * in the frame, just remove the css tags 
+               */
+              $container.removeClass("past-bottom");  
+              $container.removeClass("past-top");
 
               var ratio = height / documentHeight;  
               $window.scrollTop(newMaskTop / ratio);
@@ -112,8 +134,7 @@ angular.module('angularApp').directive('scrollHint', function() {
 
         var screenHeight = $window.height();
 
-        var hintHeight = $('.hv-position-hint').height();
-
+        var hintHeight = $content.height();
         var screenRatio = hintHeight / documentHeight;
 
         var scaledMaskHeight = screenRatio * screenHeight;
@@ -123,7 +144,21 @@ angular.module('angularApp').directive('scrollHint', function() {
           var maskHeight = $mask.height(scaledMaskHeight);
         }
          
-        $mask.css("top", scaledMaskTop + 'px')
+        $mask.css("top", scaledMaskTop + 'px');
+        var minY = -$content.position().top;
+        var maxY = $container.height() + minY;
+
+        if (scaledMaskTop > maxY) {
+          $container.removeClass("past-top");
+          $container.addClass("past-bottom");
+        } else if (scaledMaskTop < minY) {
+          $container.removeClass("past-bottom");  
+          $container.addClass("past-top");
+        } else {
+          $container.removeClass("past-bottom");  
+          $container.removeClass("past-top");
+        }
+
       }
 
       var onCheck = function() {
