@@ -1539,6 +1539,31 @@ a.hv-button-primary:hover {
   opacity: 1;
 }
 
+.hv-position-content * p {
+  font-size: 2px;
+}
+
+.hv-position-content * h1 {
+  font-size: 2em;
+}
+
+.hv-position-content * h2 {
+  font-size: 1.5em;
+}
+.hv-position-content * h3 {
+  font-size: 1.3em;
+}
+
+.hv-position-content * h4,
+.hv-position-content * h5 {
+  font-size: 1.1em; 
+}
+
+.hv-position-content * h6 {
+  font-size: 1em;
+}
+
+
 .hv-position-content * h1,
 .hv-position-content * h2,
 .hv-position-content * h3,
@@ -1547,6 +1572,7 @@ a.hv-button-primary:hover {
 .hv-position-content * h6,
 .hv-position-content * p {
   margin-bottom: 1px;
+  margin-top: 0px;
 }
 
 .hv-position-mask {
